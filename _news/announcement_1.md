@@ -1,8 +1,10 @@
 ---
 layout: post
+title: Paper accepted by Combustion and Flame
 date: 2024-02-01 00:00:00-0400
-inline: true
+inline: false
 related_posts: false
 ---
 
-Paper accepted by Combustion and Flame
+new Paper accepted by Combustion and Flame
+---

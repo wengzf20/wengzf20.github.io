@@ -17,11 +17,11 @@ profile:
     
 
 news: true # includes a list of news items
-latest_posts: false # includes a list of the newest posts
+latest_posts: true # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-Zifeng Weng is a Ph.D. candidate at the Center for Combustion Energy and the School of Vehicle and Mobility in Tsinghua University. His research interests include
+Zifeng Weng is a Ph.D. candidate in the Center for Combustion Energy and the School of Vehicle and Mobility at the Tsinghua University. His research interests include
 - Shock and detonation physics
 - Supercritical combustion
 - Laminar flame
