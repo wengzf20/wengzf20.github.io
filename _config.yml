@@ -282,8 +282,8 @@ display_categories: ["Notes", "Code", "Solver"] # these categories will be displ
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Weng]
+  first_name: [Zifeng]
 
   style: apa
   locale: en
