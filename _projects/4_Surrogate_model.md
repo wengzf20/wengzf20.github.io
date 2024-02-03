@@ -1,9 +1,9 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
+title: Surrogate model
+description: another without an image
+img: assets/img/project_thumbnail/pinn-feature.png
+importance: 4
 category: fun
 ---
 

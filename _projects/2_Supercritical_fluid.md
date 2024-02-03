@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
-img:
-importance: 4
-category: fun
+title: Supercritical fluid
+description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The mixture under transcritical or supercritical states pose challenges to numerical simulation.
+img: assets/img/project_thumbnail/N2Jet.png
+importance: 2
+category: work
+giscus_comments: true
 ---
 
 Every project has a beautiful feature showcase page.

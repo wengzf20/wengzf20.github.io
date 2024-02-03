@@ -1,12 +1,15 @@
 ---
 layout: page
-title: Detonation at elevated pressure
-description: a project with a background image
-img: assets/img/12.jpg
+title: Detonation wave at elevated pressure
+description: Focus on the initiation, structure and stability of gaseous detonation at high preassure where real gas effects are non-negligible.
+img: assets/img/project_thumbnail/sootfoil.png
 importance: 1
-category: work
+category: 
 related_publications: true
+# github: true
 ---
+
+{% cite WENGCombustionandFlame2022 %}
 
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
