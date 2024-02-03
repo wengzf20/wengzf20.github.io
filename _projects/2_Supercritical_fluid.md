@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Supercritical fluid
-description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The mixture under transcritical or supercritical states pose challenges to numerical simulation.
+description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The fluid under transcritical or supercritical states exhibits multi-scale physical behaviours and pose challenges to numerical simulation ...
 img: assets/img/project_thumbnail/N2Jet.png
 importance: 2
 category: work

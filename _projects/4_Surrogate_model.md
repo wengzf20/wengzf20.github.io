@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Surrogate model
-description: another without an image
+description: Neural network based surrogate models offer great potential for accelerating expensive combustion simulation with acceptable loss of accuracy ...
 img: assets/img/project_thumbnail/pinn-feature.png
 importance: 4
 category: fun

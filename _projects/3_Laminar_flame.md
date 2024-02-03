@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Laminar flame speed
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+title: Laminar flame
+description: Researches on laminar flame are essential for the development of combustion chemistry, ignition problem, flame stability ...
+img: assets/img/project_thumbnail/laminarflame.png
 importance: 3
-category: work
+# category: work
 ---
 
 Every project has a beautiful feature showcase page.
