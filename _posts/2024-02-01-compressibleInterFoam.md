@@ -8,7 +8,6 @@ categories: Solvers
 thumbnail: assets/img/CFDfoundationLogo.png
 toc:
   sidebar: left
-viewercount: true
 ---
 
 <h2> Under development </h2>

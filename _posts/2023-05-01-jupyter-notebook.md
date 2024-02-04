@@ -8,7 +8,6 @@ categories: Code
 giscus_comments: false
 related_posts: false
 thumbnail: assets/img/photo/IMG_2537.jpg
-viewercount: true
 ---
 
 {::nomarkdown}
