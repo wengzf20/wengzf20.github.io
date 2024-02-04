@@ -4,78 +4,68 @@ title: Supercritical fluid
 description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The fluid under transcritical or supercritical states exhibits multi-scale physical behaviours and pose challenges to numerical simulation ...
 img: assets/img/project_thumbnail/N2Jet.png
 importance: 2
-category: work
-giscus_comments: true
+category: 
+giscus_comments: false
 ---
+<!-- the script and style -->
+<script>
+function togglebibBlock(blockid) {
+  var id = document.getElementById(blockid);
+  if (id) {
+    if(id.className.indexOf('bibBlock') != -1) {
+        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
+    }
+  } else {
+    return;
+  }
+}
+</script>
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<style>
+div.noshow { display: none; }
+div.bibBlock {}
+</style> 
+<!-- the script and style -->
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+<h2> Pressure-based supercritical flow solver </h2>
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+<p style="text-align: justify;">
+Injection, mixing and combustion processes in rocket engines typically take place at trans- or super-critical conditions. Liquified fuel and oxidizer were injected at cryogenic and high pressure state. Accurate descriptions of real-fluid properties are essential for numerical simulation. A pressure-based solver was developed on open-source platform, DeepFlame [1], by connecting OpenFOAM and Cantera. The real fluid model in Cantera, including Peng-Robinson equation of state and corresponding thermodynamic functions, transport properties, was used to replace the ideal gas assumption in OpenFOAM. The pressure equation was revised according to Jarczyk and Pfitzner's work [2]. The performance of the solver was demonstrated using nitrogen convection and injection cases [2-3]. 
+</p>
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-9 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/N2Convection2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Nitrogen convection case proposed by Jarczyk and Pfitzner [2].
 </div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
 <div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
+    <div class="col-sm-9 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/N2Convection1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
 </div>
-```
+<div class="caption">
+    Periodical nitrogen convection case proposed by Ma et al. [3].
+</div>
 
-{% endraw %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-9 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/rho_field.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    LES simulation for case 4 in Mayer's experiment [4].
+</div>
+
+<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
+<div id="ref1" class="bibBlock noshow">
+<pre>
+[1] <img src="/assets/img/project_thumbnail/deepflame.jpg" style="height: 2em;vertical-align: middle;"> <a href="https://github.com/deepmodeling/deepflame-dev">https://github.com/deepmodeling/deepflame-dev</a>
+[2] M.-M. Jarczyk, and M. Pfitzner, in 50th AIAA Aerospace Sciences Meeting Including the New Horizons Forum and Aerospace Exposition (American Institute of Aeronautics and Astronautics, 2012).
+[3] P.C. Ma, Y. Lv, and M. Ihme, “An entropy-stable hybrid scheme for simulations of transcritical real-fluid flows,” Journal of Computational Physics 340, 330–357 (2017).
+[4] W. Mayer, J. Telaar, R. Branam, G. Schneider, and J. Hussong, “Raman Measurements of Cryogenic Injection at Supercritical Pressure,” Heat and Mass Transfer 39(8), 709–719 (2003).
+</pre>
+</div>

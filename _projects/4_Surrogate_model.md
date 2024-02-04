@@ -4,77 +4,63 @@ title: Surrogate model
 description: Neural network based surrogate models offer great potential for accelerating expensive combustion simulation with acceptable loss of accuracy ...
 img: assets/img/project_thumbnail/pinn-feature.png
 importance: 4
-category: fun
+category: 
 ---
+<!-- the script and style -->
+<script>
+function togglebibBlock(blockid) {
+  var id = document.getElementById(blockid);
+  if (id) {
+    if(id.className.indexOf('bibBlock') != -1) {
+        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
+    }
+  } else {
+    return;
+  }
+}
+</script>
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<style>
+div.noshow { display: none; }
+div.bibBlock {}
+</style> 
+<!-- the script and style -->
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+<h2> Neural network (NN) based regression on real fluid properties </h2>
+<p style="text-align: justify;">
+The update of real fluid properties takes about 50% (reactive case) [1] or 75% (non-reactive case) of the computation time in supercritical flow simulation. 
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+Fully connected (or multi-Layer perceptron) type NN was trained to predict the thermo-physical properties of pure nitrogen. The network was optimized to 69 parameters and with prediction error lower than 1% for most conditions.
+</p>
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-10 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/ANN_pred.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    Comparison between reference results (line) and prediction of NN (symbol). 
 </div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+<p style="text-align: justify;">
+The trained NN was coupled with an AI-empowered platform, DeepFlame, to accelerate CFD simulation. Several tests were done using nitrogen convection and supercritical nitrogen injection as examples. The NN significantly reduced the computation time by several folds.
+</p>
 
-{% raw %}
-
-```html
 <div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
+    <div class="col-sm-10 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/ANN_N2Convection.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
 </div>
-```
+<div class="caption">
+    Simulation results obtained with explicit calculation and NN prediction. 
+</div>
 
-{% endraw %}
+
+<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
+<div id="ref1" class="bibBlock noshow">
+<pre>
+[1] P.C. Ma, Y. Lv, and M. Ihme, “An entropy-stable hybrid scheme for simulations of transcritical real-fluid flows,” Journal of Computational Physics 340, 330–357 (2017).
+[2] W. Mayer, J. Telaar, R. Branam, G. Schneider, and J. Hussong, “Raman Measurements of Cryogenic Injection at Supercritical Pressure,” Heat and Mass Transfer 39(8), 709–719 (2003).
+[3] <img src="/assets/img/project_thumbnail/deepflame.jpg" style="height: 2em;vertical-align: middle;"> <a href="https://github.com/deepmodeling/deepflame-dev">https://github.com/deepmodeling/deepflame-dev</a>
+</pre>
+</div>
