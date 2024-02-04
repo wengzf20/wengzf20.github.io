@@ -4,10 +4,11 @@ title: Prepare figures for journal articles
 date: 2023-05-01 00:00:00-0000
 description: an summary of codes for preparing figures based on python
 tags: artworks
-categories: Code
+categories: Code 
 giscus_comments: false
 related_posts: false
 thumbnail: assets/img/photo/IMG_2537.jpg
+viewercount: true
 ---
 
 {::nomarkdown}
@@ -19,4 +20,3 @@ thumbnail: assets/img/photo/IMG_2537.jpg
   <p>Sorry, the notebook you are looking for does not exist.</p>
 {% endif %}
 {:/nomarkdown}
-

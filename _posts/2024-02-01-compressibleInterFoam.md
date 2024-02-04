@@ -8,6 +8,7 @@ categories: Solvers
 thumbnail: assets/img/CFDfoundationLogo.png
 toc:
   sidebar: left
+viewercount: true
 ---
 
 <h2> Under development </h2>
@@ -305,3 +306,4 @@ $$
 ## Reference
 > 1. $\alpha$ equation: Shi, X., Zheng, K., & Yin, B. (2023). Numerical method for gas-liquid two-phase flow with phase change heat transfer considering compressibility using OpenFOAM. International Journal of Thermal Sciences, 188, 108195. 
 > 2. momentum equation and coupling: S.T. Miller, H. Jasak, D.A. Boger, E.G. Paterson, and A. Nedungadi, “A pressure-based, compressible, two-phase flow finite volume method for underwater explosions,” Computers & Fluids 87, 132–143 (2013).  -->
+
