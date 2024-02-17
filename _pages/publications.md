@@ -10,9 +10,11 @@ nav_order: 3
 <h2>Peer-reviewed journal articles</h2>
 
 <div class="publications">
-{% bibliography %}
+{% bibliography --file papers.bib %}
 </div>
 
 
 <h2>Peer-reviewed conference papers </h2>
-coming soon ...
+<div class="publications">
+{% bibliography --file conference.bib %}
+</div>

@@ -9,8 +9,11 @@ thumbnail: assets/img/CFDfoundationLogo.png
 toc:
   sidebar: left
 ---
+<!-- 
+This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
+ -->
 
-<h2> Under development </h2>
+`This page is under development`
 
 CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach.
 
@@ -20,15 +23,15 @@ Eq. \ref{eq:cauchy-schwarz} is the Cauchy-Schwarz inequality. -->
 <h2> Derivation from conservation law </h2>
 The mass conservation for individual species are
 
-$$
+\begin{equation} \label{eq:mass_alpha1}
 \frac{\partial\left(\rho_1 \alpha_1\right)}{\partial t}+\nabla \cdot\left(\rho_1 \boldsymbol{U} \alpha_1\right)=\dot{m} 
-$$
+\end{equation}
 
-$$
+\begin{equation} \label{eq:mass_alpha2}
  \frac{\partial\left(\rho_2 \alpha_2\right)}{\partial t}+\nabla \cdot\left(\rho_2 \boldsymbol{U} \alpha_2\right)=-\dot{m}
-$$
+\end{equation}
 
-where $\alpha_{1}+\alpha_{2} = 1$; $\dot{m}$ is the source term from phase change. If there is no phase change, $\dot{m}$ is zero.
+where $$ \alpha_{1}+\alpha_{2} = 1 $$; $$ \dot{m} $$ is the source term from phase change. If there is no phase change, $$ \dot{m} $$ is zero.
 
 Consider only the volume fraction in the l.h.s., and move other parts to the r.h.s. to be the source term.
 
@@ -48,7 +51,7 @@ $$
 
 The 1st and 2nd term in the r.h.s. are the compressibility and phase change effects.
 
-Insert it to the $\alpha_1$ equation by adding and substracting $\alpha_{1}\nabla \cdot\boldsymbol{U}$
+Insert it to the $$\alpha_1$$ equation by adding and substracting $\alpha_{1}\nabla \cdot\boldsymbol{U}$
 
 $$
 \frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right)
