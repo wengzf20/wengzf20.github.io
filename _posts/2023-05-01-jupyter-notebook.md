@@ -10,6 +10,7 @@ related_posts: false
 thumbnail: assets/img/photo/IMG_2537.jpg
 ---
 
+
 {::nomarkdown}
 {% assign jupyter_path = 'assets/jupyter/plotFig.ipynb' | relative_url %}
 {% capture notebook_exists %}{% file_exists assets/jupyter/plotFig.ipynb %}{% endcapture %}
