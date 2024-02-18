@@ -231,6 +231,136 @@ and pressure equation via
 fvScalarMatrix Sp_rgh(phaseChange.Sp_rgh(rho, gh, p_rgh));
 ```
 
+### The Schnerr-Sauer model
+#### Source term of alphaEqn
+
+```c++
+Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
+Foam::twoPhaseChangeModels::SchnerrSauer::mDotAlphal() const
+{
+    ...
+    const volScalarField::Internal pCoeff(this->pCoeff(p));
+    ...
+    return Pair<tmp<volScalarField::Internal>>
+    (
+        Cc_*limitedAlpha1*pCoeff*max(p - pSat(), p0_),
+        Cv_*(1.0 + alphaNuc() - limitedAlpha1)*pCoeff*min(p - pSat(), p0_)
+    );
+}
+    // Note: 
+    // pCoeff = (3*rho1()*rho2())*sqrt(2/(3*rho1()))
+    //   *rRb(limitedAlpha1)/(rho*sqrt(mag(p - pSat()) + 0.01*pSat()));
+```
+$$
+\dot{m}=\underbrace{\alpha_{v}\dot{m}_{c}}_{\text{condensation}}+\underbrace{\alpha_{l}\dot{m}_{v}}_{\text{vaporization}}
+$$
+
+$$
+\begin{aligned}
+& \dot{m}_{c} = C_{c}\alpha_{l}\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}max(P-P_{s},0) \geq 0 \\
+&\dot{m}_{v} = C_{v}(1+\alpha_{Nuc}-\alpha_{l})\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}min(P-P_{s},0) \leq 0\\
+&\text{pcoeff} = \frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}
+\end{aligned}
+$$
+
+```c
+Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
+Foam::twoPhaseChangeModels::cavitationModel::Salpha
+(
+    volScalarField& alpha
+) const
+{
+    ...
+    const volScalarField::Internal vDotcAlphal(alphalCoeff*mDotAlphal[0]());
+    const volScalarField::Internal vDotvAlphal(alphalCoeff*mDotAlphal[1]());
+    return Pair<tmp<volScalarField::Internal>> // mdot =  \alpha_{l}S_{p} + S_{u}
+    (
+        1.0*vDotcAlphal, // Su
+        vDotvAlphal - vDotcAlphal // Sp
+    );
+}
+```
+
+The source term in $\alpha_{l}$ equation, $S_{\alpha}$ was seperated as 
+
+$$
+\begin{aligned}
+S_{\alpha} &= \alpha_{l,coeff}\dot{m} \\
+&= \alpha_{l,coeff}(\alpha_{l}\dot{m}_{v} + \alpha_{v}\dot{m}_{c}) \\
+&= \alpha_{l,coeff}[\alpha_{l}(\dot{m}_{v}-\dot{m}_{c}) + \dot{m}_{c}]\\
+&= \underbrace{\alpha_{l}\alpha_{l,coeff}(\dot{m}_{v}-\dot{m}_{c})}_{\alpha_{l} \text{Sp} <0} + \underbrace{\alpha_{l,coeff}\dot{m}_{c}}_{\text{Su} >0} \\
+&= \alpha_{l}\text{Sp} + \text{Su}
+\end{aligned}
+$$
+
+$$
+\alpha_{l,coeff} = \left(\frac{1}{\rho_l}-\alpha_{l}\left(\frac{1}{\rho_l}-\frac{1}{\rho_v}\right)\right) > 0
+$$
+
+In OpenFOAM, fvm::Sp handles negative source term. fvm::Sp makes the negative source term implicit so it contributes to the diagonal and increase the . This can help convergence when the source term is negative on the rhs (sink term). (ref.: OpenFOAM® Beginner training session)
+
+#### Source term of pEqn
+The mass transfer rate in pEqn, $\dot{m}_{p}$ was defined as
+
+$$
+\dot{m}_{p} = -\frac{\dot{m}}{P-P_{s}} = \underbrace{-\frac{\alpha_{l}\dot{m}_{v}}{P-P_{s}}}_{\dot{m}_{p,v} \leq 0 } - \underbrace{\frac{(1-\alpha_{l})\dot{m}_{c}}{P-P_{s}}}_{\dot{m}_{p,c} \geq 0 }  = 
+\dot{m}_{p,v} - \dot{m}_{p,c}  
+$$
+
+```c++
+Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
+Foam::twoPhaseChangeModels::SchnerrSauer::mDotP() const
+{
+    const volScalarField::Internal apCoeff(limitedAlpha1*pCoeff);
+
+    return Pair<tmp<volScalarField::Internal>>
+    (
+        Cc_*(1.0 - limitedAlpha1)*pos0(p - pSat())*apCoeff,
+
+        (-Cv_)*(1.0 + alphaNuc() - limitedAlpha1)*neg(p - pSat())*apCoeff
+    );
+}
+```
+
+$$
+\begin{aligned}
+& \dot{m}_{p,c} = C_{c}(1-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{pos0}(P-P_{s}) =\frac{1-\alpha_{l}}{P-P_{s}}\dot{m}_{c} \geq 0 \\
+&\dot{m}_{p,v} = -C_{v}(1+\alpha_{Nuc}-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{neg}(P-P_{s}) = -\frac{\alpha_{l}}{P-P_{s}}\dot{m}_{v} \leq 0
+\end{aligned}
+$$
+
+```
+Foam::tmp<Foam::fvScalarMatrix>
+Foam::twoPhaseChangeModels::cavitationModel::Sp_rgh
+(
+    const volScalarField& rho,
+    const volScalarField& gh,
+    volScalarField& p_rgh
+) const
+{
+    const volScalarField::Internal pCoeff(1.0/rho1() - 1.0/rho2());
+    const Pair<tmp<volScalarField::Internal>> mDotP = this->mDotP();
+
+    const volScalarField::Internal vDotcP(pCoeff*mDotP[0]);
+    const volScalarField::Internal vDotvP(pCoeff*mDotP[1]);
+
+    return
+        (vDotvP - vDotcP)*(pSat() - rho()*gh())
+      - fvm::Sp(vDotvP - vDotcP, p_rgh);
+}
+```
+
+$$
+\begin{aligned}
+S_{P}&= \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)\dot{m}\\
+& = \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})(P_{s}-P)\\
+& = \underbrace{\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P_{s}}_{\text{Su}>0}\quad \underbrace{-\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P}_{P*\text{Sp}<0}\\
+\end{aligned}
+$$
+
+(Note: ${1}/{\rho_{l}}-{1}/{\rho_{v}} <0$)
+
+
 ## Temperature Equation
 `coming soon`
 
