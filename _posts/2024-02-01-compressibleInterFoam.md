@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CompressibleInterFoam: theory, implementation and examples"
-date: 2024-01-15 00:00:00
+date: 2024-02-01 00:00:00
 description: this post is intended for a thorough introduction to compressibleInterFoam, including the governing equation, implementation in OpenFOAM and some demos.
 tags: OpenFOAM
 categories: Solvers
