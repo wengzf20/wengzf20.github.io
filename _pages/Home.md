@@ -28,4 +28,4 @@ Zifeng Weng is a Ph.D. candidate in the Center for Combustion Energy and the Sch
 - AI for Science
 - Computational fluid dynamics 
 
-He is a visiting research student in the Department of Engineering Science at the University of Oxford from Sept. 2023 to Feb. 2024. From 2016 to 2020, he studied Mechanical Engineering (with honor) and Mathematics and Applied Mathematics in Shanghai Jiao Tong University.
+He is a visiting research student in the <a href="https://eng.ox.ac.uk/people/zifeng-weng/">Department of Engineering Science</a> in University of Oxford from Sept. 2023 to Feb. 2024. From 2016 to 2020, he studied Mechanical Engineering (with honor) and Mathematics and Applied Mathematics in Shanghai Jiao Tong University.
