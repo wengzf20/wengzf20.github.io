@@ -6,8 +6,6 @@ description:
 tags: Notes
 categories: 
 thumbnail: https://brewminate.com/wp-content/uploads/2016/11/Journal03.jpg
-toc:
-  sidebar: left
 pretty_table: true
 ---
 
