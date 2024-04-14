@@ -35,8 +35,31 @@ Supercritical laminar flame speed was studied for syngas for sCO<sub>2</sub> app
 <h2> Extrapolation relation </h2>
 
 <p style="text-align: justify;">
-Relation between stretch rate and flame speed was derived via asymptotic analysis. The result obtained by Ronney and Sivashinsky [1] was extended from perfect gas to Noble-Abel gas. (More is coming)
+Relation between stretch rate and flame speed was derived via asymptotic analysis. The result obtained by Ronney and Sivashinsky [1] was extended from perfect gas to Noble-Abel gas.
 </p>
+
+\begin{equation} \label{eq:Evolution_S_R}
+    \left(\frac{S}{1+b}\right)^{2}\ln\left(\frac{S}{1+b}\right)^{2} = -\frac{d}{dR}\left(\frac{S}{1+b}\right) + \frac{2}{R}\left(\frac{S}{1+b}\right) -\frac{d}{dR}\left(\frac{S}{1+b}\right) -l.
+\end{equation}
+
+The Markstein length (number) was given as
+
+\begin{equation}
+    L_{b} = -\frac{\delta_{ad}I\beta}{2}= -\frac{\delta_{ad}\beta}{2}\int_{\varepsilon}^{1} \frac{1+b}{T^{0}+b}\left[\left(\frac{T^{0}-\varepsilon}{1-\varepsilon}\right)^{\mathrm{Le}-1}-1\right] {\rm d} T^{0}.
+\end{equation}
+
+<p style="text-align: justify;">
+The extrapolation relation was validated with spherical flame simulation based on recently developed solver for real gas laminar flame.
+</p>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project_thumbnail/flame_sim_norm.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The variations of flame speed with the Karlovitz number simulated with IG and NA EoS. The fresh mixture was stoichiometric H2-air.
+</div>
 
 <h2> Jet ignition </h2>
 
@@ -45,6 +68,12 @@ Relation between stretch rate and flame speed was derived via asymptotic analysi
 </p>
 
 
+<a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
+<div id="ref2" class="bibBlock noshow">
+<div class="publications" >
+  {% bibliography --group_by none --query @*[key=SphericalFlame2024]* %}
+</div>
+</div>
 
 <a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
 <div id="ref1" class="bibBlock noshow">
