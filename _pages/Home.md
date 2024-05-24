@@ -21,11 +21,12 @@ latest_posts: true # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-Zifeng Weng is a Ph.D. candidate in the Center for Combustion Energy and the School of Vehicle and Mobility in Tsinghua University. His research interests include
-- Shock and detonation physics
-- Supercritical combustion
-- Laminar flame
+Zifeng Weng is a Ph.D. candidate in the <a href="https://www.cce.tsinghua.edu.cn/">Center for Combustion Energy</a> and the <a href="http://www.svm.tsinghua.edu.cn/">School of Vehicle and Mobility</a> in Tsinghua University. His research interests include
+
+- Shock and Detonation Physics
 - AI for Science
-- Computational fluid dynamics 
+- Trans-/Supercritical Combustion
+- Laminar Flame
+- Computational fluid/flame dynamics 
 
 He is a visiting research student in the <a href="https://eng.ox.ac.uk/people/zifeng-weng/">Department of Engineering Science</a> in University of Oxford from Sept. 2023 to Feb. 2024. From 2016 to 2020, he studied Mechanical Engineering (with honor) and Mathematics and Applied Mathematics in Shanghai Jiao Tong University.
