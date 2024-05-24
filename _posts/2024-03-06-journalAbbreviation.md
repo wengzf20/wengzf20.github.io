@@ -9,6 +9,8 @@ thumbnail: https://brewminate.com/wp-content/uploads/2016/11/Journal03.jpg
 pretty_table: true
 ---
 
+`This page will receive periodic updates.`
+
 The abbreviated title is generated via [CAS Source Index (CASSI) Search Tool](https://cassi.cas.org/search.jsp).
 
 | Journal | Abbreviated title | 
@@ -21,3 +23,5 @@ The abbreviated title is generated via [CAS Source Index (CASSI) Search Tool](ht
 | [Physical Review Fluids](https://journals.aps.org/prfluids/) | Phys. Rev. Fluids |
 | [Computers & Fluids](https://www.sciencedirect.com/journal/computers-and-fluids) | Comput. Fluids |
 | [Physics of Fluids](http://aip.scitation.org/journal/phf) | Phys. Fluids |
+| [International Journal of Hydrogen Energy](https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy) | Int. J. Hydrogen Energy |
+| [Journal of Computational Physics](https://www.sciencedirect.com/journal/journal-of-computational-physics) | 	J. Comput. Phys. |

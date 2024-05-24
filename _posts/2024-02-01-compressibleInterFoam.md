@@ -1,5 +1,9 @@
 ---
 layout: post
+_styles: |
+    .container {
+    max-width: 950px; 
+    }
 title: "CompressibleInterFoam: theory, implementation and examples"
 date: 2024-02-01 00:00:00
 description: this post is intended for a thorough introduction to compressibleInterFoam, including the governing equation, implementation in OpenFOAM and some demos.
@@ -7,7 +11,7 @@ tags: OpenFOAM
 categories: Solvers
 thumbnail: assets/img/CFDfoundationLogo.png
 toc:
-  sidebar: left
+  sidebar: right
 ---
 <!-- 
 This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.

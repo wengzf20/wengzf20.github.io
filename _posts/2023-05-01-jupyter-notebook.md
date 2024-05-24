@@ -10,6 +10,7 @@ related_posts: false
 thumbnail: assets/img/photo/IMG_2537.jpg
 ---
 
+`This page will receive periodic updates.`
 
 {::nomarkdown}
 {% assign jupyter_path = 'assets/jupyter/plotFig.ipynb' | relative_url %}
