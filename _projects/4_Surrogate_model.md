@@ -65,5 +65,5 @@ The trained NN was coupled with an AI-empowered platform, DeepFlame, to accelera
 </pre>
 </div>
 
-<h2> Neural network operator </h2>
-more is coming
+<h2> Neural operator </h2>
+coming soon
