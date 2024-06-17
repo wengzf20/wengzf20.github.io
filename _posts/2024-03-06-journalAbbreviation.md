@@ -25,3 +25,4 @@ The abbreviated title is generated via [CAS Source Index (CASSI) Search Tool](ht
 | [Physics of Fluids](http://aip.scitation.org/journal/phf) | Phys. Fluids |
 | [International Journal of Hydrogen Energy](https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy) | Int. J. Hydrogen Energy |
 | [Journal of Computational Physics](https://www.sciencedirect.com/journal/journal-of-computational-physics) | 	J. Comput. Phys. |
+| [International Journal of Multiphase Flow](https://www.sciencedirect.com/journal/international-journal-of-multiphase-flow) | Int. J. Multiphase Flow |
