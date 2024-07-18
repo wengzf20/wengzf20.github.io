@@ -26,6 +26,13 @@ div.bibBlock {}
 </style> 
 <!-- the script and style -->
 
+
+<h2> Spontaneous ignition of hydrogen jet </h2>
+
+<p style="text-align: justify;">
+(More is coming)
+</p>
+
 <h2> Laminar flame speed </h2>
 
 <p style="text-align: justify;">
@@ -60,13 +67,6 @@ The extrapolation relation was validated with spherical flame simulation based o
 <div class="caption">
     The variations of flame speed with the Karlovitz number simulated with IG and NA EoS. The fresh mixture was stoichiometric H2-air.
 </div>
-
-<h2> Jet ignition </h2>
-
-<p style="text-align: justify;">
-(More is coming)
-</p>
-
 
 <a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
 <div id="ref2" class="bibBlock noshow">
