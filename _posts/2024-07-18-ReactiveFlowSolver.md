@@ -6,7 +6,7 @@ _styles: |
     }
 title: Reactive flow solvers
 date: 2024-07-18 00:00:00
-description: 
+description: This post collects reactive flow solver I met in my research
 tags: Code
 categories: 
 thumbnail: assets/img/5.jpg
@@ -38,5 +38,6 @@ pretty_table: true
 | :---------- | :------------ |  :------------ |
 | PeleC |`to update` |`to update` |
 | OpenCFD | `to update`| `to update`|
-
+| PyFR  |`to update` |`to update` |
+| PyFR  |`to update` |`to update` |
 
