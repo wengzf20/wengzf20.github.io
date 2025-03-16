@@ -14,8 +14,6 @@ profile:
     <p><a href="https://scholar.google.com/citations?user=iQ73Y8UAAAAJ"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></p>
     <p><a href="https://www.researchgate.net/profile/Zifeng-Weng"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> ResearchGate</a></p>
 
-    
-
 news: true # includes a list of news items
 latest_posts: true # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"

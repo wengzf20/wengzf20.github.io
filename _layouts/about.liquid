@@ -65,15 +65,20 @@ layout: default
     {% endif %}
 
     <!-- Visitor -->
-    <div style="text-align: center;">
+    <!-- <div style="text-align: center;">
         <h2>
             <a href="https://info.flagcounter.com/ajqz">
                 <img src="https://s11.flagcounter.com/map/ajqz/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0">
             </a>
         </h2>
-    </div>
+    </div>  -->
 
-    <!--  <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=kMTT9_jpICB43-nHbnVWJsAYjf9TEyswuWK-rCXewkI&cl=ffffff&w=a"></script>  -->
+
+    <div style="position: relative; width: 30%; max-width: 800px; margin: 0 auto; padding-top: 35%;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=kMTT9_jpICB43-nHbnVWJsAYjf9TEyswuWK-rCXewkI"></script>
+        </div>
+    </div>
 
     <!-- Social -->
     {% if page.social %}
