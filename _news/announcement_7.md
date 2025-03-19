@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Paper recognized as Honorable Mention in the 40th Combustion Symposimum
+title: Paper recognized as Honorable Mention in the 40th Combustion Symposium
 date: 2025-03-01 00:00:00-0000
 inline: false
 related_posts: false
