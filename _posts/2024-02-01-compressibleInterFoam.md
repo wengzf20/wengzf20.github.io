@@ -19,7 +19,7 @@ This theme supports rendering beautiful math in inline and display modes using [
 
 `This page is under development`
 
-CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach.
+CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach. The following analysis is based on OpenFOAM 9.
 
 <!-- \begin{equation} \label{eq:cauchy-schwarz} \left( \sum{k=1}^n a_k b_k \right)^2 \leq \left( \sum{k=1}^n ak^2 \right) \left( \sum{k=1}^n b_k^2 \right) \end{equation}
 Eq. \ref{eq:cauchy-schwarz} is the Cauchy-Schwarz inequality. -->
