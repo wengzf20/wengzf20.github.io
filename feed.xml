@@ -1,12 +1,170 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wengzf20.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://wengzf20.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-14T16:14:40+00:00</updated><id>https://wengzf20.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">functionObjects in OpenFOAM</title><link href="https://wengzf20.github.io/blog/2024/functionObjects/" rel="alternate" type="text/html" title="functionObjects in OpenFOAM"/><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/functionObjects</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/functionObjects/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <h3> functionobject is created when creating runTime </h3>]]></content><author><name></name></author><category term="Notes"/><category term="Code"/><summary type="html"><![CDATA[notes for the implementation of functionObjects in OpenFOAM]]></summary></entry><entry><title type="html">PeleLMex solver</title><link href="https://wengzf20.github.io/blog/2024/PeleLMex/" rel="alternate" type="text/html" title="PeleLMex solver"/><published>2024-08-01T00:00:00+00:00</published><updated>2024-08-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/PeleLMex</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/PeleLMex/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <h3> Features of PeleLMex </h3> <p>Links</p> <ul> <li><a href="https://amrex-combustion.github.io/PeleLMeX/">Project website</a></li> <li><a href="https://amrex-combustion.github.io/PeleLMeX/manual/html/index.html">Document</a></li> <li><a href="https://github.com/AMReX-Combustion/PeleLMeX">Github repository</a></li> </ul> <h3> Dependencies </h3> <h4> CMake </h4> <p>PeleLMex requires CMake 3.23.1 or higher which is usually higher than the default version (e.g. Cmake 3.16.3 in ubuntu 20.04)</p> <p>With root accessibility, install latest CMake from APT repository</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wengzf20.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wengzf20.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-08-20T10:01:16+00:00</updated><id>https://wengzf20.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">functionObjects in OpenFOAM</title><link href="https://wengzf20.github.io/blog/2024/functionObjects/" rel="alternate" type="text/html" title="functionObjects in OpenFOAM" /><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/functionObjects</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/functionObjects/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<h3> functionobject is created when creating runTime </h3>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for the implementation of functionObjects in OpenFOAM]]></summary></entry><entry><title type="html">PeleLMex solver</title><link href="https://wengzf20.github.io/blog/2024/PeleLMex/" rel="alternate" type="text/html" title="PeleLMex solver" /><published>2024-08-01T00:00:00+00:00</published><updated>2024-08-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/PeleLMex</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/PeleLMex/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<h3> Features of PeleLMex </h3>
+
+<p>Links</p>
+
+<ul>
+  <li><a href="https://amrex-combustion.github.io/PeleLMeX/">Project website</a></li>
+  <li><a href="https://amrex-combustion.github.io/PeleLMeX/manual/html/index.html">Document</a></li>
+  <li><a href="https://github.com/AMReX-Combustion/PeleLMeX">Github repository</a></li>
+</ul>
+
+<h3> Dependencies </h3>
+
+<h4> CMake </h4>
+
+<p>PeleLMex requires CMake 3.23.1 or higher which is usually higher than the default version (e.g. Cmake 3.16.3 in ubuntu 20.04)</p>
+
+<p>With root accessibility, install latest CMake from APT repository</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
 <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> software-properties-common apt-transport-https ca-certificates gnupg2
 <span class="nb">sudo </span>wget <span class="nt">-O</span> - https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg <span class="nt">--dearmor</span> - | <span class="nb">sudo tee</span> /etc/apt/trusted.gpg.d/kitware.gpg <span class="o">&gt;</span> /dev/null
 <span class="nb">sudo </span>apt-add-repository <span class="s1">'deb https://apt.kitware.com/ubuntu/ focal main'</span>
 <span class="nb">sudo </span>apt-get update
 <span class="nb">sudo </span>apt-get <span class="nb">install </span>cmake
-</code></pre></div></div> <p>Without root, download and compile from source code</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bootstrap <span class="nt">--prefix</span><span class="o">=</span>/path/to/your/installation/directory
+</code></pre></div></div>
+
+<p>Without root, download and compile from source code</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bootstrap <span class="nt">--prefix</span><span class="o">=</span>/path/to/your/installation/directory
 make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
-</code></pre></div></div> <h3> Visualization </h3> <h4> Paraview </h4> <p>Paraview provides reader to data type of AMReX, i.e. “AMReX/BoxLib Grid Reader” or “AMReX/BoxLib Particles Reader”.</p> <p>Only the particle reader is supported in Paraview 5.6.3.</p> <p>Both readers are available in Paraview 5.10.0.</p>]]></content><author><name></name></author><category term="Code"/><summary type="html"><![CDATA[This page will receive periodic updates.]]></summary></entry><entry><title type="html">Reactive flow solvers</title><link href="https://wengzf20.github.io/blog/2024/ReactiveFlowSolver/" rel="alternate" type="text/html" title="Reactive flow solvers"/><published>2024-07-18T00:00:00+00:00</published><updated>2024-07-18T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/ReactiveFlowSolver</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/ReactiveFlowSolver/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <h3> Solvers implemented in OpenFOAM </h3> <table> <thead> <tr> <th style="text-align: left">Solver</th> <th style="text-align: left">Features</th> <th style="text-align: left">Relevant Links</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">DLBFoam</td> <td style="text-align: left">Dynamic load balancing model for solving chemistry</td> <td style="text-align: left"><a href="https://github.com/Aalto-CFD/DLBFoam.git">Repository</a></td> </tr> <tr> <td style="text-align: left">hybridCentralSolvers</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><a href="https://github.com/unicfdlab/hybridCentralSolvers.git">Repository</a></td> </tr> <tr> <td style="text-align: left">EBIDNSFoam</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><a href="https://vbt.ebi.kit.edu/english/594.php">Request</a></td> </tr> <tr> <td style="text-align: left">blastFoam</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><a href="https://github.com/synthetik-technologies/blastfoam.git">Origin</a></td> </tr> <tr> <td style="text-align: left">CTreactingFoam</td> <td style="text-align: left">Reacting flow solver based on OpenFOAM and Cantera; Detailed transport; Strang splitting scheme and a well-balanced splitting scheme; Diagnostic methods: conservative chemical explosive mode analysis (CCEMA), and global pathway analysis (GPA)</td> <td style="text-align: left"><a href="https://doi.org/10.3390/aerospace9020102">Origin</a> <br/> <a href="https://github.com/UMN-CRFEL/OpenFOAM-Cantera">Repository</a></td> </tr> <tr> <td style="text-align: left">RSDFoam</td> <td style="text-align: left">Real gas shock and detonation simulation solver in OpenFOAM 9</td> <td style="text-align: left"><a href="https://linkinghub.elsevier.com/retrieve/pii/S0045793023002372">Origin</a> <br/> <a href="https://linkinghub.elsevier.com/retrieve/pii/S0010218024000713">Application 1</a></td> </tr> <tr> <td style="text-align: left">detonationFoam</td> <td style="text-align: left">Extension of rhoCentralFoam including HLLC-P, DLBFoam, 2D AMR; Flame and detonation simulation</td> <td style="text-align: left"><a href="https://doi.org/10.17632/x45zh4nz28.1">Origin</a> <br/> <a href="https://github.com/JieSun-pku/detonationFoam">Repository</a></td> </tr> <tr> <td style="text-align: left">reactingPimpleCentralFoam</td> <td style="text-align: left">OpenFOAM v2012; Pressure-based semi-implicit; Central-upwind (Kurganov and Tadmor); Detonation simulation with detailed chemistry, mixture of different stabilities, shock-attached and lab coordinates</td> <td style="text-align: left"><a href="https://doi.org/10.51560/ofj.v4.125">Origin</a> <br/> <a href="https://github.com/Vigneshwaran-Sankar/reactingPimpleCentralFoam-for-detonations">Repository</a></td> </tr> <tr> <td style="text-align: left">exaFoam</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> </tr> <tr> <td style="text-align: left">gpuFoam</td> <td style="text-align: left">Tools and extensions for GPU-accelerated OpenFOAM simulations</td> <td style="text-align: left"><a href="https://github.com/vttresearch/gpuFoam.git">Repository</a></td> </tr> </tbody> </table> <p><br/></p> <h3> Solvers in other platforms </h3> <table> <thead> <tr> <th style="text-align: left">Solver</th> <th style="text-align: left">Features</th> <th style="text-align: left">Relevant Links</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">PeleC</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> </tr> <tr> <td style="text-align: left">OpenCFD</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> </tr> <tr> <td style="text-align: left">PyFR</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> </tr> <tr> <td style="text-align: left">PyFR</td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td> </tr> </tbody> </table>]]></content><author><name></name></author><category term="Code"/><summary type="html"><![CDATA[This post collects reactive flow solver I met in my research]]></summary></entry><entry><title type="html">Notes for OpenFOAM</title><link href="https://wengzf20.github.io/blog/2024/OpenFOAM/" rel="alternate" type="text/html" title="Notes for OpenFOAM"/><published>2024-05-24T00:00:00+00:00</published><updated>2024-05-24T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/OpenFOAM</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/OpenFOAM/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <h3> writePrecision</h3> <ul> <li> <p>Use finer precision to reduce truncated error when re-run the simulation from a given time step.</p> </li> <li> <p>In AMR, large truncated error might lead to wrong point coordinates and zero cell volume.</p> </li> </ul> <p><br/></p> <h3> Load balanced adaptive mesh refinement </h3> <ul> <li>The library doesn’t compatible with openmpi-3.1.0.</li> </ul> <p><br/></p> <h3> Implementation of fvc::div </h3> <p><code class="language-plaintext highlighter-rouge">fvc::div</code> functions were realized in the following ways</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in src/finiteVolume/finiteVolume/fvc/fvcDiv.C</span>
+</code></pre></div></div>
+
+<h3> Visualization </h3>
+
+<h4> Paraview </h4>
+
+<p>Paraview provides reader to data type of AMReX, i.e. “AMReX/BoxLib Grid Reader” or “AMReX/BoxLib Particles Reader”.</p>
+
+<p>Only the particle reader is supported in Paraview 5.6.3.</p>
+
+<p>Both readers are available in Paraview 5.10.0.</p>]]></content><author><name></name></author><category term="Code" /><summary type="html"><![CDATA[This page will receive periodic updates.]]></summary></entry><entry><title type="html">Reactive flow solvers</title><link href="https://wengzf20.github.io/blog/2024/ReactiveFlowSolver/" rel="alternate" type="text/html" title="Reactive flow solvers" /><published>2024-07-18T00:00:00+00:00</published><updated>2024-07-18T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/ReactiveFlowSolver</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/ReactiveFlowSolver/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<h3> Solvers implemented in OpenFOAM </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Solver</th>
+      <th style="text-align: left">Features</th>
+      <th style="text-align: left">Relevant Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">DLBFoam</td>
+      <td style="text-align: left">Dynamic load balancing model for solving chemistry</td>
+      <td style="text-align: left"><a href="https://github.com/Aalto-CFD/DLBFoam.git">Repository</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hybridCentralSolvers</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><a href="https://github.com/unicfdlab/hybridCentralSolvers.git">Repository</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EBIDNSFoam</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><a href="https://vbt.ebi.kit.edu/english/594.php">Request</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blastFoam</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><a href="https://github.com/synthetik-technologies/blastfoam.git">Origin</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CTreactingFoam</td>
+      <td style="text-align: left">Reacting flow solver based on OpenFOAM and Cantera; Detailed transport; Strang splitting scheme and a well-balanced splitting scheme; Diagnostic methods: conservative chemical explosive mode analysis (CCEMA), and global pathway analysis (GPA)</td>
+      <td style="text-align: left"><a href="https://doi.org/10.3390/aerospace9020102">Origin</a> <br /> <a href="https://github.com/UMN-CRFEL/OpenFOAM-Cantera">Repository</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RSDFoam</td>
+      <td style="text-align: left">Real gas shock and detonation simulation solver in OpenFOAM 9</td>
+      <td style="text-align: left"><a href="https://linkinghub.elsevier.com/retrieve/pii/S0045793023002372">Origin</a> <br /> <a href="https://linkinghub.elsevier.com/retrieve/pii/S0010218024000713">Application 1</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">detonationFoam</td>
+      <td style="text-align: left">Extension of rhoCentralFoam including HLLC-P, DLBFoam, 2D AMR; Flame and detonation simulation</td>
+      <td style="text-align: left"><a href="https://doi.org/10.17632/x45zh4nz28.1">Origin</a> <br /> <a href="https://github.com/JieSun-pku/detonationFoam">Repository</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">reactingPimpleCentralFoam</td>
+      <td style="text-align: left">OpenFOAM v2012; Pressure-based semi-implicit; Central-upwind (Kurganov and Tadmor); Detonation simulation with detailed chemistry, mixture of different stabilities, shock-attached and lab coordinates</td>
+      <td style="text-align: left"><a href="https://doi.org/10.51560/ofj.v4.125">Origin</a> <br /> <a href="https://github.com/Vigneshwaran-Sankar/reactingPimpleCentralFoam-for-detonations">Repository</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">exaFoam</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gpuFoam</td>
+      <td style="text-align: left">Tools and extensions for GPU-accelerated OpenFOAM simulations</td>
+      <td style="text-align: left"><a href="https://github.com/vttresearch/gpuFoam.git">Repository</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+<h3> Solvers in other platforms </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Solver</th>
+      <th style="text-align: left">Features</th>
+      <th style="text-align: left">Relevant Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PeleC</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OpenCFD</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PyFR</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PyFR</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">to update</code></td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><category term="Code" /><summary type="html"><![CDATA[This post collects reactive flow solver I met in my research]]></summary></entry><entry><title type="html">Notes for OpenFOAM</title><link href="https://wengzf20.github.io/blog/2024/OpenFOAM/" rel="alternate" type="text/html" title="Notes for OpenFOAM" /><published>2024-05-24T00:00:00+00:00</published><updated>2024-05-24T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/OpenFOAM</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/OpenFOAM/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<h3> writePrecision</h3>
+<ul>
+  <li>
+    <p>Use finer precision to reduce truncated error when re-run the simulation from a given time step.</p>
+  </li>
+  <li>
+    <p>In AMR, large truncated error might lead to wrong point coordinates and zero cell volume.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+<h3> Load balanced adaptive mesh refinement </h3>
+<ul>
+  <li>The library doesn’t compatible with openmpi-3.1.0.</li>
+</ul>
+
+<p><br /></p>
+<h3> Implementation of fvc::div </h3>
+<p><code class="language-plaintext highlighter-rouge">fvc::div</code> functions were realized in the following ways</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in src/finiteVolume/finiteVolume/fvc/fvcDiv.C</span>
 <span class="c1">// fvc::div(vf,name) --- vf: volume field; name: scheme</span>
 <span class="k">return</span> <span class="n">fv</span><span class="o">::</span><span class="n">divScheme</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">New</span>
 <span class="p">(</span>
@@ -20,31 +178,98 @@ make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
     <span class="n">flux</span><span class="p">,</span>
     <span class="n">vf</span><span class="p">.</span><span class="n">mesh</span><span class="p">().</span><span class="n">divScheme</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="p">).</span><span class="n">ref</span><span class="p">().</span><span class="n">fvcDiv</span><span class="p">(</span><span class="n">flux</span><span class="p">,</span> <span class="n">vf</span><span class="p">);</span>
-</code></pre></div></div> <p>There are two steps, fisrt, construct an object [type: <code class="language-plaintext highlighter-rouge">tmp&lt;convectionScheme&lt;Type&gt;&gt;</code>] of divScheme or convectionScheme; second, call <code class="language-plaintext highlighter-rouge">fvcDiv</code> function.</p> <ol> <li>divScheme or convectionScheme <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// in src/finiteVolume/finiteVolume/divSchemes/divScheme/divScheme.C</span>
+</code></pre></div></div>
+
+<p>There are two steps, fisrt, construct an object [type: <code class="language-plaintext highlighter-rouge">tmp&lt;convectionScheme&lt;Type&gt;&gt;</code>] of divScheme or convectionScheme; second, call <code class="language-plaintext highlighter-rouge">fvcDiv</code> function.</p>
+
+<ol>
+  <li>divScheme or convectionScheme
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// in src/finiteVolume/finiteVolume/divSchemes/divScheme/divScheme.C</span>
  <span class="c1">// divScheme</span>
      <span class="k">typename</span> <span class="n">IstreamConstructorTable</span><span class="o">::</span><span class="n">iterator</span> <span class="n">cstrIter</span> <span class="o">=</span> <span class="n">IstreamConstructorTablePtr_</span><span class="o">-&gt;</span><span class="n">find</span><span class="p">(</span><span class="n">schemeName</span><span class="p">);</span>
      <span class="k">return</span> <span class="nf">cstrIter</span><span class="p">()(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">schemeData</span><span class="p">);</span>
  <span class="c1">// convection scheme</span>
      <span class="k">typename</span> <span class="n">IstreamConstructorTable</span><span class="o">::</span><span class="n">iterator</span> <span class="n">cstrIter</span> <span class="o">=</span> <span class="n">IstreamConstructorTablePtr_</span><span class="o">-&gt;</span><span class="n">find</span><span class="p">(</span><span class="n">schemeName</span><span class="p">);</span>
      <span class="k">return</span> <span class="nf">cstrIter</span><span class="p">()(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">faceFlux</span><span class="p">,</span> <span class="n">schemeData</span><span class="p">);</span>
-</code></pre></div> </div> </li> <li> <p>fvcDiv</p> <ol> <li> <p>For divergence</p> <p>Only one type is available: <code class="language-plaintext highlighter-rouge">gaussDivScheme</code></p> <p>The essential code is <code class="language-plaintext highlighter-rouge">c++ // fvcDiv function in src/finiteVolume/finiteVolume/convectionSchemes/gaussConvectionScheme/gaussConvectionScheme.C fvc::surfaceIntegrate ( this-&gt;tinterpScheme_().dotInterpolate(this-&gt;mesh_.Sf(), vf) ) </code></p> <p><code class="language-plaintext highlighter-rouge">tinterpScheme_</code> was initialized in father class, <code class="language-plaintext highlighter-rouge">c++ tinterpScheme_(surfaceInterpolationScheme&lt;Type&gt;::New(mesh, is)) // is: Istream for divScheme </code></p> </li> <li> <p>For convection</p> <p>Three types were available</p> <ul> <li><code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code></li> <li><code class="language-plaintext highlighter-rouge">boundedConvectionScheme</code></li> <li><code class="language-plaintext highlighter-rouge">multivariateGaussConvectionScheme</code></li> </ul> <p>We only check <code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code>, the essential code is</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">fvc</span><span class="o">::</span><span class="n">surfaceIntegrate</span><span class="p">(</span><span class="n">flux</span><span class="p">(</span><span class="n">faceFlux</span><span class="p">,</span> <span class="n">vf</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>fvcDiv</p>
+
+    <ol>
+      <li>
+        <p>For divergence</p>
+
+        <p>Only one type is available: <code class="language-plaintext highlighter-rouge">gaussDivScheme</code></p>
+
+        <p>The essential code is 
+     <code class="language-plaintext highlighter-rouge">c++
+     // fvcDiv function in src/finiteVolume/finiteVolume/convectionSchemes/gaussConvectionScheme/gaussConvectionScheme.C
+     fvc::surfaceIntegrate
+     (
+         this-&gt;tinterpScheme_().dotInterpolate(this-&gt;mesh_.Sf(), vf)
+     )
+    </code></p>
+
+        <p><code class="language-plaintext highlighter-rouge">tinterpScheme_</code> was initialized in father class,
+     <code class="language-plaintext highlighter-rouge">c++
+     tinterpScheme_(surfaceInterpolationScheme&lt;Type&gt;::New(mesh, is)) // is: Istream for divScheme
+    </code></p>
+      </li>
+      <li>
+        <p>For convection</p>
+
+        <p>Three types were available</p>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code></li>
+          <li><code class="language-plaintext highlighter-rouge">boundedConvectionScheme</code></li>
+          <li><code class="language-plaintext highlighter-rouge">multivariateGaussConvectionScheme</code></li>
+        </ul>
+
+        <p>We only check <code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code>, the essential code is</p>
+        <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">fvc</span><span class="o">::</span><span class="n">surfaceIntegrate</span><span class="p">(</span><span class="n">flux</span><span class="p">(</span><span class="n">faceFlux</span><span class="p">,</span> <span class="n">vf</span><span class="p">))</span>
 
  <span class="c1">// flux(faceFlux, vf) is defined as</span>
      <span class="n">faceFlux</span><span class="o">*</span><span class="nf">interpolate</span><span class="p">(</span><span class="n">faceFlux</span><span class="p">,</span> <span class="n">vf</span><span class="p">);</span>   
  <span class="c1">// interpolate(faceFlux, vf) is defined as      </span>
      <span class="k">return</span> <span class="nf">tinterpScheme_</span><span class="p">().</span><span class="n">interpolate</span><span class="p">(</span><span class="n">vf</span><span class="p">);</span>
-</code></pre></div> </div> <p>during the construction, <code class="language-plaintext highlighter-rouge">tinterpScheme_</code> is a pointer for the specified surface interpolation scheme.</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">tinterpScheme_</span>
+</code></pre></div>        </div>
+
+        <p>during the construction, <code class="language-plaintext highlighter-rouge">tinterpScheme_</code> is a pointer for the specified surface interpolation scheme.</p>
+        <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">tinterpScheme_</span>
  <span class="p">(</span>
      <span class="n">surfaceInterpolationScheme</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">New</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">faceFlux</span><span class="p">,</span> <span class="n">is</span><span class="p">)</span>
  <span class="p">)</span>
-</code></pre></div> </div> <p>The exact interpolation methods, like linear, WENO, were realized in corresponding class.</p> </li> </ol> </li> </ol> <p><br/></p> <h3> Implementation of fvm::div </h3> <p><code class="language-plaintext highlighter-rouge">fvm::div</code> calculates the matrix for the divergence of the given field and flux. It only provides convection scheme. The code is</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvm::div(flux,vf,name) is</span>
+</code></pre></div>        </div>
+
+        <p>The exact interpolation methods, like linear, WENO, were realized in corresponding class.</p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p><br /></p>
+<h3> Implementation of fvm::div </h3>
+<p><code class="language-plaintext highlighter-rouge">fvm::div</code> calculates the matrix for the divergence of the given field and flux. It only provides convection scheme. The code is</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvm::div(flux,vf,name) is</span>
 <span class="k">return</span> <span class="n">fv</span><span class="o">::</span><span class="n">convectionScheme</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">New</span>
 <span class="p">(</span>
     <span class="n">vf</span><span class="p">.</span><span class="n">mesh</span><span class="p">(),</span>
     <span class="n">flux</span><span class="p">,</span>
     <span class="n">vf</span><span class="p">.</span><span class="n">mesh</span><span class="p">().</span><span class="n">divScheme</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="p">)().</span><span class="n">fvmDiv</span><span class="p">(</span><span class="n">flux</span><span class="p">,</span> <span class="n">vf</span><span class="p">);</span>
-</code></pre></div></div> <p>In <code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code>, the function <code class="language-plaintext highlighter-rouge">fvmDiv</code> calls several functions via the surface interpolation object <code class="language-plaintext highlighter-rouge">tinterpScheme_</code>, including</p> <ul> <li><code class="language-plaintext highlighter-rouge">weights(vf)</code></li> <li><code class="language-plaintext highlighter-rouge">corrected()</code></li> <li><code class="language-plaintext highlighter-rouge">correction(vf)</code></li> </ul> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// return type: tmp&lt;fvMatrix&lt;Type&gt;&gt; fvmDiv</span>
+</code></pre></div></div>
+
+<p>In <code class="language-plaintext highlighter-rouge">gaussConvectionScheme</code>, the function <code class="language-plaintext highlighter-rouge">fvmDiv</code> calls several functions via the surface interpolation object <code class="language-plaintext highlighter-rouge">tinterpScheme_</code>, including</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">weights(vf)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">corrected()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">correction(vf)</code></li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// return type: tmp&lt;fvMatrix&lt;Type&gt;&gt; fvmDiv</span>
     <span class="n">tmp</span><span class="o">&lt;</span><span class="n">surfaceScalarField</span><span class="o">&gt;</span> <span class="n">tweights</span> <span class="o">=</span> <span class="n">tinterpScheme_</span><span class="p">().</span><span class="n">weights</span><span class="p">(</span><span class="n">vf</span><span class="p">);</span>
     <span class="k">const</span> <span class="n">surfaceScalarField</span><span class="o">&amp;</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">tweights</span><span class="p">();</span>
 
@@ -62,15 +287,45 @@ make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">tfvm</span><span class="p">;</span>
-</code></pre></div></div> <p><br/></p> <h3> Implementation of fvc::grad </h3> <p>For volume mesh <code class="language-plaintext highlighter-rouge">fvc::grad(vf,name)</code></p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::grad(vf,name)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+<h3> Implementation of fvc::grad </h3>
+<p>For volume mesh <code class="language-plaintext highlighter-rouge">fvc::grad(vf,name)</code></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::grad(vf,name)</span>
 <span class="k">return</span> <span class="n">fv</span><span class="o">::</span><span class="n">gradScheme</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">New</span>
 <span class="p">(</span>
     <span class="n">vf</span><span class="p">.</span><span class="n">mesh</span><span class="p">(),</span>
     <span class="n">vf</span><span class="p">.</span><span class="n">mesh</span><span class="p">().</span><span class="n">gradScheme</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="p">)().</span><span class="n">grad</span><span class="p">(</span><span class="n">vf</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
-</code></pre></div></div> <p>Here, several gradient schemes are available. Again, we only focus on <code class="language-plaintext highlighter-rouge">gaussGrad</code>.</p> <p>For surface mesh</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::grad(ssf,name)</span>
+</code></pre></div></div>
+<p>Here, several gradient schemes are available. Again, we only focus on <code class="language-plaintext highlighter-rouge">gaussGrad</code>.</p>
+
+<p>For surface mesh</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::grad(ssf,name)</span>
 <span class="k">return</span> <span class="n">fv</span><span class="o">::</span><span class="n">gaussGrad</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">gradf</span><span class="p">(</span><span class="n">ssf</span><span class="p">,</span> <span class="s">"grad("</span> <span class="o">+</span> <span class="n">ssf</span><span class="p">.</span><span class="n">name</span><span class="p">()</span> <span class="o">+</span> <span class="sc">')'</span><span class="p">);</span>
-</code></pre></div></div> <ol> <li><code class="language-plaintext highlighter-rouge">grad</code> function of <code class="language-plaintext highlighter-rouge">gaussGrad</code> (realized in father class <code class="language-plaintext highlighter-rouge">gradScheme</code>) <ul> <li>cache</li> <li><code class="language-plaintext highlighter-rouge">calcGrad(vsf, name)</code> <ul> <li>First, call <code class="language-plaintext highlighter-rouge">gradf(tinterpScheme_().interpolate(vsf), name)</code>, <code class="language-plaintext highlighter-rouge">tinterpScheme_</code> is created without face flux, i.e. <code class="language-plaintext highlighter-rouge">surfaceInterpolationScheme&lt;Type&gt;::New(mesh, is)</code></li> <li>Then call <code class="language-plaintext highlighter-rouge">correctBoundaryConditions(vsf, gGrad);</code></li> </ul> </li> </ul> </li> <li><code class="language-plaintext highlighter-rouge">gradf</code> function of <code class="language-plaintext highlighter-rouge">gaussGrad</code> to update</li> </ol> <p><br/></p> <h3> Implementation of surfaceInterpolationScheme </h3> <p>The implementation of <code class="language-plaintext highlighter-rouge">fvc::div</code>, <code class="language-plaintext highlighter-rouge">fvm::div</code> and <code class="language-plaintext highlighter-rouge">fvc::grad</code> all reply on interpolation. In a summary, following functions should be provided in each intepolation method (or class),</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::div(vf)</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">grad</code> function of <code class="language-plaintext highlighter-rouge">gaussGrad</code> (realized in father class <code class="language-plaintext highlighter-rouge">gradScheme</code>)
+    <ul>
+      <li>cache</li>
+      <li><code class="language-plaintext highlighter-rouge">calcGrad(vsf, name)</code>
+        <ul>
+          <li>First, call <code class="language-plaintext highlighter-rouge">gradf(tinterpScheme_().interpolate(vsf), name)</code>, <code class="language-plaintext highlighter-rouge">tinterpScheme_</code> is created without face flux, i.e. <code class="language-plaintext highlighter-rouge">surfaceInterpolationScheme&lt;Type&gt;::New(mesh, is)</code></li>
+          <li>Then call <code class="language-plaintext highlighter-rouge">correctBoundaryConditions(vsf, gGrad);</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">gradf</code> function of <code class="language-plaintext highlighter-rouge">gaussGrad</code>
+ to update</li>
+</ol>
+
+<p><br /></p>
+<h3> Implementation of surfaceInterpolationScheme </h3>
+<p>The implementation of <code class="language-plaintext highlighter-rouge">fvc::div</code>, <code class="language-plaintext highlighter-rouge">fvm::div</code> and <code class="language-plaintext highlighter-rouge">fvc::grad</code> all reply on interpolation. In a summary, following functions should be provided in each intepolation method (or class),</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// fvc::div(vf)</span>
 <span class="n">dotInterpolate</span>
 <span class="c1">// fvc::div(flux,vf), fvc::grad</span>
 <span class="n">interpolate</span>
@@ -78,53 +333,276 @@ make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
 <span class="n">weights</span><span class="p">(</span><span class="n">vf</span><span class="p">)</span>
 <span class="n">corrected</span><span class="p">()</span>
 <span class="n">correction</span><span class="p">(</span><span class="n">vf</span><span class="p">)</span>
-</code></pre></div></div> <p>Here we use linear interpolation as an example,</p> <p><br/></p> <h3> Implementation of mapFields </h3> <p>coming soon</p>]]></content><author><name></name></author><category term="Notes"/><category term="Code"/><summary type="html"><![CDATA[notes for running simulations in OpenFOAM.]]></summary></entry><entry><title type="html">Journals and their abbreviated titles</title><link href="https://wengzf20.github.io/blog/2024/journalAbbreviation/" rel="alternate" type="text/html" title="Journals and their abbreviated titles"/><published>2024-03-06T00:00:00+00:00</published><updated>2024-03-06T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/journalAbbreviation</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/journalAbbreviation/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <p>The abbreviated title is generated via <a href="https://cassi.cas.org/search.jsp">CAS Source Index (CASSI) Search Tool</a>.</p> <table> <thead> <tr> <th style="text-align: left">Journal</th> <th style="text-align: left">Abbreviated title</th> </tr> </thead> <tbody> <tr> <td style="text-align: left"><a href="">Applications in Energy and Combustion Science</a></td> <td style="text-align: left">Appl. Energy Combust. Sci.</td> </tr> <tr> <td style="text-align: left"><a href="https://onlinelibrary.wiley.com/journal/10974601">International Journal of Chemical Kinetics </a></td> <td style="text-align: left">Int. J. Chem. Kinet.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/progress-in-energy-and-combustion-science">Progress in Energy and Combustion Science</a></td> <td style="text-align: left">Prog. Energy Combust. Sci.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/combustion-and-flame">Combustion and Flame</a></td> <td style="text-align: left">Combust. Flame</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/proceedings-of-the-combustion-institute">Proceedings of the Combustion Institute</a></td> <td style="text-align: left">Proc. Combust. Inst.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.tandfonline.com/journals/gcst20"> Combustion Science and Technology</a></td> <td style="text-align: left">Combust. Sci. Technol.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics">Journal of Fluid Mechanics</a></td> <td style="text-align: left">J. Fluid Mech.</td> </tr> <tr> <td style="text-align: left"><a href="https://journals.aps.org/prfluids/">Physical Review Fluids</a></td> <td style="text-align: left">Phys. Rev. Fluids</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/computer-physics-communications">Computer Physics Communications</a></td> <td style="text-align: left">Comput. Phys. Commun.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/computers-and-fluids">Computers &amp; Fluids</a></td> <td style="text-align: left">Comput. Fluids</td> </tr> <tr> <td style="text-align: left"><a href="http://aip.scitation.org/journal/phf">Physics of Fluids</a></td> <td style="text-align: left">Phys. Fluids</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy">International Journal of Hydrogen Energy</a></td> <td style="text-align: left">Int. J. Hydrogen Energy</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/journal-of-computational-physics">Journal of Computational Physics</a></td> <td style="text-align: left">J. Comput. Phys.</td> </tr> <tr> <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/international-journal-of-multiphase-flow">International Journal of Multiphase Flow</a></td> <td style="text-align: left">Int. J. Multiphase Flow</td> </tr> </tbody> </table>]]></content><author><name></name></author><category term="Notes"/><summary type="html"><![CDATA[This page will receive periodic updates.]]></summary></entry><entry><title type="html">Notes for linux</title><link href="https://wengzf20.github.io/blog/2024/linux/" rel="alternate" type="text/html" title="Notes for linux"/><published>2024-02-18T00:00:00+00:00</published><updated>2024-02-18T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/linux</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/linux/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <h3> Don't use rm </h3> <p>Move file to trash and empty trash periodically instead of using <code class="language-plaintext highlighter-rouge">rm</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ban rm</span>
+</code></pre></div></div>
+<p>Here we use linear interpolation as an example,</p>
+
+<p><br /></p>
+<h3> Implementation of mapFields </h3>
+
+<p>coming soon</p>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for running simulations in OpenFOAM.]]></summary></entry><entry><title type="html">Journals and their abbreviated titles</title><link href="https://wengzf20.github.io/blog/2024/journalAbbreviation/" rel="alternate" type="text/html" title="Journals and their abbreviated titles" /><published>2024-03-06T00:00:00+00:00</published><updated>2024-03-06T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/journalAbbreviation</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/journalAbbreviation/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<p>The abbreviated title is generated via <a href="https://cassi.cas.org/search.jsp">CAS Source Index (CASSI) Search Tool</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Journal</th>
+      <th style="text-align: left">Abbreviated title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="">Applications in Energy and Combustion Science</a></td>
+      <td style="text-align: left">Appl. Energy Combust. Sci.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://onlinelibrary.wiley.com/journal/10974601">International Journal of Chemical Kinetics </a></td>
+      <td style="text-align: left">Int. J. Chem. Kinet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/progress-in-energy-and-combustion-science">Progress in Energy and Combustion Science</a></td>
+      <td style="text-align: left">Prog. Energy Combust. Sci.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/combustion-and-flame">Combustion and Flame</a></td>
+      <td style="text-align: left">Combust. Flame</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/proceedings-of-the-combustion-institute">Proceedings of the Combustion Institute</a></td>
+      <td style="text-align: left">Proc. Combust. Inst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.tandfonline.com/journals/gcst20">	Combustion Science and Technology</a></td>
+      <td style="text-align: left">Combust. Sci. Technol.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics">Journal of Fluid Mechanics</a></td>
+      <td style="text-align: left">J. Fluid Mech.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://journals.aps.org/prfluids/">Physical Review Fluids</a></td>
+      <td style="text-align: left">Phys. Rev. Fluids</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/computer-physics-communications">Computer Physics Communications</a></td>
+      <td style="text-align: left">Comput. Phys. Commun.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/computers-and-fluids">Computers &amp; Fluids</a></td>
+      <td style="text-align: left">Comput. Fluids</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="http://aip.scitation.org/journal/phf">Physics of Fluids</a></td>
+      <td style="text-align: left">Phys. Fluids</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy">International Journal of Hydrogen Energy</a></td>
+      <td style="text-align: left">Int. J. Hydrogen Energy</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/journal-of-computational-physics">Journal of Computational Physics</a></td>
+      <td style="text-align: left">J. Comput. Phys.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://www.sciencedirect.com/journal/international-journal-of-multiphase-flow">International Journal of Multiphase Flow</a></td>
+      <td style="text-align: left">Int. J. Multiphase Flow</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><category term="Notes" /><summary type="html"><![CDATA[This page will receive periodic updates.]]></summary></entry><entry><title type="html">Notes for linux</title><link href="https://wengzf20.github.io/blog/2024/linux/" rel="alternate" type="text/html" title="Notes for linux" /><published>2024-02-18T00:00:00+00:00</published><updated>2024-02-18T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/linux</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/linux/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+<h3> Don't use rm </h3>
+<p>Move file to trash and empty trash periodically instead of using <code class="language-plaintext highlighter-rouge">rm</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ban rm</span>
 <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">alias 'rm'='echo "</span>The use of <span class="nb">rm </span>is banned on this system.<span class="s2">"'"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
 <span class="nb">source</span> ~/.bashrc
 <span class="c"># move file to transh</span>
 gio trash path/to/your/files
-</code></pre></div></div> <p><br/></p> <h3> Parallel compression </h3> <p>Compress files parallelly using pgiz</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>cf - /path/to/directory | pigz <span class="nt">-p</span> 4 <span class="o">&gt;</span> directory.tar.gz
-</code></pre></div></div> <p>In this command:</p> <ul> <li><code class="language-plaintext highlighter-rouge">tar cf - /path/to/directory</code> creates an archive of the specified directory and outputs it to standard output (<code class="language-plaintext highlighter-rouge">-</code>).</li> <li><code class="language-plaintext highlighter-rouge">pigz -p 4</code> takes the <code class="language-plaintext highlighter-rouge">tar</code> output from standard input and compresses it using 4 cores (<code class="language-plaintext highlighter-rouge">-p 4</code> option).</li> <li><code class="language-plaintext highlighter-rouge">&gt; directory.tar.gz</code> redirects the compressed output to a file named <code class="language-plaintext highlighter-rouge">directory.tar.gz</code>.</li> </ul> <p><br/></p> <h3> Zip file extraction </h3> <p>Check the content of the compressed file</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip <span class="nt">-l</span> file.zip
-</code></pre></div></div> <p>Extract part of the compressed file</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip file/in/zip directory/in/zip/<span class="k">*</span>
-</code></pre></div></div> <p><br/></p> <h3> Upgrade gcc for Cantera and OpenFOAM compiliation </h3> <p>The compilation of OpenFOAM requires GCC version 5.4 or above (support c++14), Linux cluster based on CentOS Linux usually has default gcc version 4.8.5. To upgrade gcc,</p> <ol> <li> <p>get source code from website,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget <span class="s1">'https://mirrors.tuna.tsinghua.edu.cn/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.gz'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+<h3> Parallel compression </h3>
+<p>Compress files parallelly using pgiz</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>cf - /path/to/directory | pigz <span class="nt">-p</span> 4 <span class="o">&gt;</span> directory.tar.gz
+</code></pre></div></div>
+
+<p>In this command:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">tar cf - /path/to/directory</code> creates an archive of the specified directory and outputs it to standard output (<code class="language-plaintext highlighter-rouge">-</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">pigz -p 4</code> takes the <code class="language-plaintext highlighter-rouge">tar</code> output from standard input and compresses it using 4 cores (<code class="language-plaintext highlighter-rouge">-p 4</code> option).</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt; directory.tar.gz</code> redirects the compressed output to a file named <code class="language-plaintext highlighter-rouge">directory.tar.gz</code>.</li>
+</ul>
+
+<p><br /></p>
+<h3> Zip file extraction </h3>
+<p>Check the content of the compressed file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip <span class="nt">-l</span> file.zip
+</code></pre></div></div>
+<p>Extract part of the compressed file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip file/in/zip directory/in/zip/<span class="k">*</span>
+</code></pre></div></div>
+
+<p><br /></p>
+<h3> Upgrade gcc for Cantera and OpenFOAM compiliation </h3>
+<p>The compilation of OpenFOAM requires GCC version 5.4 or above (support c++14), Linux cluster based on CentOS Linux usually has default gcc version 4.8.5. To upgrade gcc,</p>
+<ol>
+  <li>
+    <p>get source code from website,</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget <span class="s1">'https://mirrors.tuna.tsinghua.edu.cn/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.gz'</span>
  or
  wget <span class="s1">'https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.gz'</span>
-</code></pre></div> </div> </li> <li> <p>uncompress it the download dependencies:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">tar </span>xzf gcc-9.3.0.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>uncompress it the download dependencies:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">tar </span>xzf gcc-9.3.0.tar.gz
  <span class="nb">cd </span>gcc-9.3.0 
  ./contrib/download_prerequisites
-</code></pre></div> </div> </li> <li> <p>build the source code and install</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build/
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>build the source code and install</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build/
  ../configure <span class="nt">--prefix</span><span class="o">=</span>/dir/to/install/gcc-9.5.0 <span class="nt">--disable-multilib</span> <span class="c"># build only 64bit lib</span>
  make <span class="nt">-j</span> 16 <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
-</code></pre></div> </div> </li> <li> <p>(option) Update the environmental</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/dir/to/install/gcc-9.3.0/bin
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>(option) Update the environmental</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/dir/to/install/gcc-9.3.0/bin
  <span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/dir/to/install/gcc-9.3.0/lib:/dir/to/install/gcc-9.3.0/lib64:/dir/to/install/gcc-9.3.0/libexec
  <span class="nb">export </span><span class="nv">INCLUDE</span><span class="o">=</span><span class="nv">$INCLUDE</span>:/dir/to/install/gcc-9.3.0/include
  <span class="c"># check installation</span>
  /dir/to/install/gcc-9.3.0/bin/gcc <span class="nt">--version</span>
-</code></pre></div> </div> </li> <li> <p>specify g++ and gcc version used for compilation</p> <p>For OpenFOAM, in directory ‘~/OpenFOAM/OpenFOAM-9/wmake/rules/linux64Gcc/’,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># in c</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>specify g++ and gcc version used for compilation</p>
+
+    <p>For OpenFOAM, in directory ‘~/OpenFOAM/OpenFOAM-9/wmake/rules/linux64Gcc/’,</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># in c</span>
  cc          <span class="o">=</span> /dir/to/install/gcc-9.3.0/bin/gcc <span class="nt">-m64</span>
  <span class="c"># in c++</span>
  CC          <span class="o">=</span> /dir/to/install/gcc-9.3.0/bin/g++ <span class="nt">-std</span><span class="o">=</span>c++14 <span class="nt">-m64</span>
-</code></pre></div> </div> <p>For Cantera, change CC and CXX environmental varibles in SConstruct</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># ************************************</span>
+</code></pre></div>    </div>
+
+    <p>For Cantera, change CC and CXX environmental varibles in SConstruct</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># ************************************</span>
  <span class="c"># *** Compiler Configuration Tests ***</span>
  <span class="c"># ************************************</span>
  <span class="nb">env</span><span class="o">[</span><span class="s1">'CC'</span><span class="o">]=</span><span class="s1">'/dir/to/install/gcc-9.3.0/bin/gcc'</span>
  <span class="nb">env</span><span class="o">[</span><span class="s1">'CXX'</span><span class="o">]=</span><span class="s1">'/dir/to/install/gcc-9.3.0/bin/g++'</span>
-</code></pre></div> </div> </li> </ol> <p><br/></p> <h3> Install openmpi for OpenFOAM compiliation </h3> <ol> <li> <p>get source code from website,</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget <span class="s1">'https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.0.tar.gz'</span>
-</code></pre></div> </div> </li> <li> <p>uncompress it the download dependencies:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">tar </span>xzf openmpi-3.1.0.tar.gz
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p><br /></p>
+<h3> Install openmpi for OpenFOAM compiliation </h3>
+<ol>
+  <li>
+    <p>get source code from website,</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget <span class="s1">'https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.0.tar.gz'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>uncompress it the download dependencies:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">tar </span>xzf openmpi-3.1.0.tar.gz
  <span class="nb">cd </span>openmpi-3.1.0
-</code></pre></div> </div> </li> <li> <p>build the source code and install</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build/
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>build the source code and install</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build/
  ../configure <span class="nt">--prefix</span><span class="o">=</span>/dir/to/install/openmpi-3.1.0
  make <span class="nt">-j</span> 16 <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
-</code></pre></div> </div> </li> <li> <p>Update the environmental</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/dir/to/install/openmpi-3.1.0/bin
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Update the environmental</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/dir/to/install/openmpi-3.1.0/bin
  <span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/dir/to/install/openmpi-3.1.0/lib
  <span class="c"># check installation</span>
  mpic++ <span class="nt">--showme</span>:version
-</code></pre></div> </div> </li> </ol>]]></content><author><name></name></author><category term="Notes"/><category term="Code"/><summary type="html"><![CDATA[notes for using linux.]]></summary></entry><entry><title type="html">CompressibleInterFoam: theory, implementation and examples</title><link href="https://wengzf20.github.io/blog/2024/compressibleInterFoam/" rel="alternate" type="text/html" title="CompressibleInterFoam: theory, implementation and examples"/><published>2024-02-01T00:00:00+00:00</published><updated>2024-02-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/compressibleInterFoam</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/compressibleInterFoam/"><![CDATA[ <p><code class="language-plaintext highlighter-rouge">This page is under development</code></p> <p>CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach.</p> <h2> Derivation from conservation law </h2> <p>The mass conservation for individual species are</p> <p>\begin{equation} \label{eq:mass_alpha1} \frac{\partial\left(\rho_1 \alpha_1\right)}{\partial t}+\nabla \cdot\left(\rho_1 \boldsymbol{U} \alpha_1\right)=\dot{m} \end{equation}</p> <p>\begin{equation} \label{eq:mass_alpha2} \frac{\partial\left(\rho_2 \alpha_2\right)}{\partial t}+\nabla \cdot\left(\rho_2 \boldsymbol{U} \alpha_2\right)=-\dot{m} \end{equation}</p> <p>where \(\alpha_{1}+\alpha_{2} = 1\); \(\dot{m}\) is the source term from phase change. If there is no phase change, \(\dot{m}\) is zero.</p> <p>Consider only the volume fraction in the l.h.s., and move other parts to the r.h.s. to be the source term. Eq. \ref{eq:mass_alpha1} and \ref{eq:mass_alpha2} were re-written as</p> <p>\begin{equation} \label{eq:mass_alpha1_comp} \frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=-\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\dot{m}}{\rho_1} \end{equation}</p> <p>\begin{equation} \label{eq:mass_alpha2_comp} \frac{\partial \alpha_2}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_2\right)=-\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t} - \frac{\dot{m}}{\rho_2} \end{equation}</p> <p>The sum of these two equations lead to</p> <p>\begin{equation} \label{eq:divU} \nabla \cdot\boldsymbol{U}=-\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t}+\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right)+\dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right) \end{equation}</p> <p>The 1st and 2nd term in the r.h.s. are the compressibility and phase change effects.</p> <p>Insert it to Eq. \ref{eq:mass_alpha1_comp} by adding and substracting \(\alpha_{1}\nabla \cdot\boldsymbol{U}\)</p> <p>\begin{equation} \label{eq:mass_alpha1_final} \frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right) +\alpha_1 \nabla \cdot \boldsymbol{U}+\dot{m}\left(\frac{\alpha_2}{\rho_1}+\frac{\alpha_1}{\rho_2}\right) \end{equation}</p> <p>The compressibility, \(\alpha_1 \nabla \cdot \boldsymbol{U}\) and phase change are source terms for the alpha equation. They are separated into \(S_{p}\) and \(S_{u}\) in the MULES algorithm. \(S_{p}\) is implicit source term, \(S_{u}\) is explicit source term.</p> <h2> MULES method </h2> <p>In Eq. \ref{eq:mass_alpha1_final}, it was defined</p> <p>\begin{equation} \mathrm{dgdt}=-\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right) \end{equation}</p> <p>dgdt was calculated in the pEqn, i.e.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dgdt =
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for using linux.]]></summary></entry><entry><title type="html">CompressibleInterFoam: theory, implementation and examples</title><link href="https://wengzf20.github.io/blog/2024/compressibleInterFoam/" rel="alternate" type="text/html" title="CompressibleInterFoam: theory, implementation and examples" /><published>2024-02-01T00:00:00+00:00</published><updated>2024-02-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/compressibleInterFoam</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/compressibleInterFoam/"><![CDATA[<!-- 
+This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
+ -->
+
+<p><code class="language-plaintext highlighter-rouge">This page is under development</code></p>
+
+<p>CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach. The following analysis is based on OpenFOAM 9.</p>
+
+<!-- \begin{equation} \label{eq:cauchy-schwarz} \left( \sum{k=1}^n a_k b_k \right)^2 \leq \left( \sum{k=1}^n ak^2 \right) \left( \sum{k=1}^n b_k^2 \right) \end{equation}
+Eq. \ref{eq:cauchy-schwarz} is the Cauchy-Schwarz inequality. -->
+
+<h2> Derivation from conservation law </h2>
+<p>The mass conservation for individual species are</p>
+
+<p>\begin{equation} \label{eq:mass_alpha1}
+\frac{\partial\left(\rho_1 \alpha_1\right)}{\partial t}+\nabla \cdot\left(\rho_1 \boldsymbol{U} \alpha_1\right)=\dot{m} 
+\end{equation}</p>
+
+<p>\begin{equation} \label{eq:mass_alpha2}
+ \frac{\partial\left(\rho_2 \alpha_2\right)}{\partial t}+\nabla \cdot\left(\rho_2 \boldsymbol{U} \alpha_2\right)=-\dot{m}
+\end{equation}</p>
+
+<p>where \(\alpha_{1}+\alpha_{2} = 1\); \(\dot{m}\) is the source term from phase change. If there is no phase change, \(\dot{m}\) is zero.</p>
+
+<p>Consider only the volume fraction in the l.h.s., and move other parts to the r.h.s. to be the source term. Eq. \ref{eq:mass_alpha1} and \ref{eq:mass_alpha2} were re-written as</p>
+
+<p>\begin{equation} \label{eq:mass_alpha1_comp}
+\frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=-\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\dot{m}}{\rho_1}
+\end{equation}</p>
+
+<p>\begin{equation} \label{eq:mass_alpha2_comp}
+\frac{\partial \alpha_2}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_2\right)=-\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t} - \frac{\dot{m}}{\rho_2}
+\end{equation}</p>
+
+<p>The sum of these two equations lead to</p>
+
+<p>\begin{equation} \label{eq:divU}
+\nabla \cdot\boldsymbol{U}=-\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t}+\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right)+\dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right)
+\end{equation}</p>
+
+<p>The 1st and 2nd term in the r.h.s. are the compressibility and phase change effects.</p>
+
+<p>Insert it to Eq. \ref{eq:mass_alpha1_comp} by adding and substracting \(\alpha_{1}\nabla \cdot\boldsymbol{U}\)</p>
+
+<p>\begin{equation} \label{eq:mass_alpha1_final}
+\frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right) 
++\alpha_1 \nabla \cdot \boldsymbol{U}+\dot{m}\left(\frac{\alpha_2}{\rho_1}+\frac{\alpha_1}{\rho_2}\right)
+\end{equation}</p>
+
+<p>The compressibility, \(\alpha_1 \nabla \cdot \boldsymbol{U}\) and phase change are source terms for the alpha equation. They are separated into \(S_{p}\) and \(S_{u}\) in the MULES algorithm. \(S_{p}\) is implicit source term, \(S_{u}\) is explicit source term.</p>
+
+<h2> MULES method </h2>
+<p>In Eq. \ref{eq:mass_alpha1_final}, it was defined</p>
+
+<p>\begin{equation} 
+\mathrm{dgdt}=-\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right)
+\end{equation}</p>
+
+<p>dgdt was calculated in the pEqn, i.e.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dgdt =
 (
     alpha1*(p_rghEqnComp2 &amp; p_rgh)
     - alpha2*(p_rghEqnComp1 &amp; p_rgh)
 );
-</code></pre></div></div> <p>In solving Eq. \ref{eq:mass_alpha1_final}, dgdt was separated according to its sign in each cell</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (dgdt[celli] &gt; 0.0)
+</code></pre></div></div>
+
+<p>In solving Eq. \ref{eq:mass_alpha1_final}, dgdt was separated according to its sign in each cell</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (dgdt[celli] &gt; 0.0)
 {
     SpRef[celli] -= dgdt[celli]/max(1.0 - alpha1[celli], 1e-4);
     SuRef[celli] += dgdt[celli]/max(1.0 - alpha1[celli], 1e-4);
@@ -133,7 +611,19 @@ else if (dgdt[celli] &lt; 0.0)
 {
     SpRef[celli] += dgdt[celli]/max(alpha1[celli], 1e-4);
 }
-</code></pre></div></div> <p>The code means, if dgdt &gt; 0</p> \[S_p = \text{phaseChangeS}[1] -\frac{\mathrm{dgdt}}{\alpha_{2}}, S_u = \text{phaseChangeS}[0] + \frac{\mathrm{dgdt}}{\alpha_{2}}\] <p>if dgdt &lt; 0</p> \[S_p = \text{phaseChangeS}[1] + \frac{dgdt}{\alpha_{1}}, S_u = \text{phaseChangeS}[0]\] <p>\(S_p\), \(S_u\) together with other terms were sending to</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/twoPhaseModels/twoPhaseMixture/VoF/alphaEqn.H</span>
+</code></pre></div></div>
+
+<p>The code means, if dgdt &gt; 0</p>
+
+\[S_p = \text{phaseChangeS}[1] -\frac{\mathrm{dgdt}}{\alpha_{2}}, S_u = \text{phaseChangeS}[0] + \frac{\mathrm{dgdt}}{\alpha_{2}}\]
+
+<p>if dgdt &lt; 0</p>
+
+\[S_p = \text{phaseChangeS}[1] + \frac{dgdt}{\alpha_{1}}, S_u = \text{phaseChangeS}[0]\]
+
+<p>\(S_p\), \(S_u\) together with other terms were sending to</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/twoPhaseModels/twoPhaseMixture/VoF/alphaEqn.H</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">divU</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span>
 <span class="p">{</span>
     <span class="n">MULES</span><span class="o">::</span><span class="n">explicitSolve</span>
@@ -148,7 +638,10 @@ else if (dgdt[celli] &lt; 0.0)
         <span class="n">zeroField</span><span class="p">()</span>
     <span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>In MULES::explicitSolve, the time step was calculated, then limiter was applied, last another <em>explicitSolve</em> was called.</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C</span>
+</code></pre></div></div>
+
+<p>In MULES::explicitSolve, the time step was calculated, then limiter was applied, last another <em>explicitSolve</em> was called.</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C</span>
 <span class="k">const</span> <span class="n">scalar</span> <span class="n">rDeltaT</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">mesh</span><span class="p">.</span><span class="n">time</span><span class="p">().</span><span class="n">deltaTValue</span><span class="p">();</span>
 <span class="n">limit</span><span class="p">(</span><span class="n">rDeltaT</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">phiPsi</span><span class="p">,</span> <span class="n">Sp</span><span class="p">,</span> <span class="n">Su</span><span class="p">,</span> <span class="n">psiMax</span><span class="p">,</span> <span class="n">psiMin</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
 <span class="n">explicitSolve</span><span class="p">(</span><span class="n">rDeltaT</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">phiPsi</span><span class="p">,</span> <span class="n">Sp</span><span class="p">,</span> <span class="n">Su</span><span class="p">);</span> 
@@ -157,14 +650,49 @@ else if (dgdt[celli] &lt; 0.0)
 <span class="c1">// phiPsi - alphaPhi10</span>
 <span class="c1">// Sp - SpRef</span>
 <span class="c1">// Su - SuRef + alpha1*divU()</span>
-</code></pre></div></div> <p>In the latter <em>explicitSolve</em> called, \(\alpha_1\) for next time step was obtained via</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C</span>
+</code></pre></div></div>
+
+<p>In the latter <em>explicitSolve</em> called, \(\alpha_1\) for next time step was obtained via</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C</span>
 <span class="n">psiIf</span> <span class="o">=</span>
 <span class="p">(</span>
     <span class="n">rho</span><span class="p">.</span><span class="n">oldTime</span><span class="p">().</span><span class="n">field</span><span class="p">()</span><span class="o">*</span><span class="n">psi0</span><span class="o">*</span><span class="n">rDeltaT</span>
     <span class="o">+</span> <span class="n">Su</span><span class="p">.</span><span class="n">field</span><span class="p">()</span>
     <span class="o">-</span> <span class="n">psiIf</span>
 <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">rho</span><span class="p">.</span><span class="n">field</span><span class="p">()</span><span class="o">*</span><span class="n">rDeltaT</span> <span class="o">-</span> <span class="n">Sp</span><span class="p">.</span><span class="n">field</span><span class="p">());</span>
-</code></pre></div></div> <p>This means:</p> \[\alpha_1(t+\Delta t)=\frac{\alpha_1(t)/\Delta t + \mathrm{Su.field} - \frac{1}{V_P} \sum_f U\alpha_1 S_{f}}{1/\Delta t-\mathrm{Sp.field} }\] <p>The corresponding equation was</p> \[\frac{\partial \alpha_1}{\partial t}+\nabla \cdot(\boldsymbol{U} \alpha_1)=\alpha_1 S_{p} + S_{u} + \alpha_{1}\nabla\cdot\boldsymbol{U}\] <p>(<strong>Note</strong>: Su.field() = \(S_u+\alpha_{1}\nabla\cdot\boldsymbol{U}\), \(\alpha_1 S_{p} + S_{u}\) is implemented in <em>alphaSuSp.H</em> in the solver)</p> <h2 id="pressure-velocity-coupling">Pressure-velocity coupling</h2> <p>The velocity field is firstly estimated from the momentum equation, then the velocity field is inserted to Eq. \ref{eq:divU}.</p> \[\begin{equation} \nabla \cdot (\mathbf{H}_{\boldsymbol{U}} - \frac{1}{a_p} \nabla p_{\mathrm{rgh}}) = -\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right) + \dot{m}\left(\frac{1}{\rho_1} - \frac{1}{\rho_2}\right) \end{equation}\] <p>The source code for pressure-possion equation is</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fvScalarMatrix p_rghEqnIncomp
+</code></pre></div></div>
+
+<p>This means:</p>
+
+\[\alpha_1(t+\Delta t)=\frac{\alpha_1(t)/\Delta t  + \mathrm{Su.field} - \frac{1}{V_P} \sum_f U\alpha_1 S_{f}}{1/\Delta t-\mathrm{Sp.field} }\]
+
+<p>The corresponding equation was</p>
+
+\[\frac{\partial \alpha_1}{\partial t}+\nabla \cdot(\boldsymbol{U} \alpha_1)=\alpha_1 S_{p} + S_{u} + \alpha_{1}\nabla\cdot\boldsymbol{U}\]
+
+<p>(<strong>Note</strong>: Su.field() = \(S_u+\alpha_{1}\nabla\cdot\boldsymbol{U}\), \(\alpha_1 S_{p} + S_{u}\) is implemented in <em>alphaSuSp.H</em> in the solver)</p>
+
+<!-- - <span style="color: red;">**if dgdt > 0**</span>
+    $$\alpha_1 S_{p} + S_{u} = \alpha_{1}\text{phaseChangeS}[1]  + \text{phaseChangeS}[0] + (1-\alpha_{1})\frac{\mathrm{dgdt}}{\alpha_{2}} $$
+    $$= \alpha_{1}\text{phaseChangeS}[1]  + \text{phaseChangeS}[0] + \mathrm{dgdt} $$
+
+- <span style="color: red;">**if dgdt < 0**</span>
+    $$\alpha_1 S_{p} + S_{u} = \alpha_{1}\text{phaseChangeS}[1]  + \text{phaseChangeS}[0] + \mathrm{dgdt} $$
+
+    <span style="color: red;">**These two cases indicate**</span>
+    $$\alpha_{1}\text{phaseChangeS}[1]  + \text{phaseChangeS}[0]  = \dot{m}\left(\frac{\alpha_2}{\rho_1}+\frac{\alpha_1}{\rho_2}\right)$$ 
+    according to the derivation in the last section. </span> -->
+
+<h2 id="pressure-velocity-coupling">Pressure-velocity coupling</h2>
+<p>The velocity field is firstly estimated from the momentum equation, then the velocity field is inserted to Eq. \ref{eq:divU}.</p>
+
+\[\begin{equation}
+\nabla \cdot (\mathbf{H}_{\boldsymbol{U}} - \frac{1}{a_p} \nabla p_{\mathrm{rgh}}) = -\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right) + \dot{m}\left(\frac{1}{\rho_1} - \frac{1}{\rho_2}\right)
+\end{equation}\]
+
+<p>The source code for pressure-possion equation is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fvScalarMatrix p_rghEqnIncomp
 (
     fvc::div(phiHbyA) - fvm::laplacian(rAUf, p_rgh)
     == Sp_rgh
@@ -174,7 +702,31 @@ solve
 (
     p_rghEqnComp1() + p_rghEqnComp2() + p_rghEqnIncomp
 );
-</code></pre></div></div> <p>where <em>p_rghEqnIncomp</em> means the incompressible part while <em>p_rghEqnComp1</em> and <em>p_rghEqnComp2</em> are compressible parts corresponding to the two phases.</p> <ul> <li>fvc::div(phiHbyA): \(\nabla \cdot \mathbf{H}_{\boldsymbol{U}}\)</li> <li>fvm::laplacian(rAUf, p_rgh): \(\nabla \cdot ( \frac{1}{a_p} \nabla p_{\mathrm{rgh}})\)</li> <li>Sp_rgh: source term from phase change, i.e. \(\dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right)\)</li> <li>p_rghEqnComp1(): \(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t}\)</li> <li>p_rghEqnComp2(): \(\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\)</li> </ul> <h3 id="consideration-of-the-compressibility">Consideration of the compressibility</h3> <p><code class="language-plaintext highlighter-rouge">coming soon</code> </p> <h2 id="phase-change-model">Phase change model</h2> <p>The phase change model was included in the $$ \ alpha$ equation via</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Pair</span><span class="o">&lt;</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span> <span class="n">phaseChangeS</span>
+</code></pre></div></div>
+
+<p>where <em>p_rghEqnIncomp</em> means the incompressible part while <em>p_rghEqnComp1</em> and <em>p_rghEqnComp2</em> are compressible parts corresponding to the two phases.</p>
+
+<ul>
+  <li>fvc::div(phiHbyA): \(\nabla \cdot \mathbf{H}_{\boldsymbol{U}}\)</li>
+  <li>fvm::laplacian(rAUf, p_rgh): \(\nabla \cdot ( \frac{1}{a_p} \nabla p_{\mathrm{rgh}})\)</li>
+  <li>Sp_rgh: source term from phase change, i.e. \(\dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right)\)</li>
+  <li>p_rghEqnComp1(): \(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t}\)</li>
+  <li>p_rghEqnComp2(): \(\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\)</li>
+</ul>
+
+<h3 id="consideration-of-the-compressibility">Consideration of the compressibility</h3>
+<p><code class="language-plaintext highlighter-rouge">coming soon</code>
+<!-- By assuming constant temperature, the pressure and density can be related with
+$$d\rho_{i} = \left(\frac{\partial \rho_{i}}{\partial p}\right)_{T}dp = \psi_{i}dp\text{\quad or\quad}\rho_{i}^* = \rho_{i}^n + \psi_{i}(p^* - p^n)$$  
+In the pimple loop, the pressure possion equation might be solved for several times in a single time step (for either *nOuterCorrectors* > 1 or *nCorrectors* > 1),  --></p>
+
+<!-- first, the pressure effect on density was consider in the equation -->
+
+<h2 id="phase-change-model">Phase change model</h2>
+
+<p>The phase change model was included in the $$ \ alpha$ equation via</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Pair</span><span class="o">&lt;</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span> <span class="n">phaseChangeS</span>
 <span class="p">(</span>
     <span class="n">phaseChange</span><span class="p">.</span><span class="n">Salpha</span><span class="p">(</span><span class="n">alpha1</span><span class="p">)</span>
 <span class="p">);</span>
@@ -184,8 +736,17 @@ solve
     <span class="n">Su</span> <span class="o">=</span> <span class="n">phaseChangeS</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
     <span class="n">Sp</span> <span class="o">=</span> <span class="n">phaseChangeS</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>and pressure equation via</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fvScalarMatrix Sp_rgh<span class="o">(</span>phaseChange.Sp_rgh<span class="o">(</span>rho, gh, p_rgh<span class="o">))</span><span class="p">;</span>
-</code></pre></div></div> <h3 id="the-schnerr-sauer-model">The Schnerr-Sauer model</h3> <h4 id="source-term-of-alphaeqn">Source term of alphaEqn</h4> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>and pressure equation via</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fvScalarMatrix Sp_rgh<span class="o">(</span>phaseChange.Sp_rgh<span class="o">(</span>rho, gh, p_rgh<span class="o">))</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="the-schnerr-sauer-model">The Schnerr-Sauer model</h3>
+<h4 id="source-term-of-alphaeqn">Source term of alphaEqn</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
 <span class="n">Foam</span><span class="o">::</span><span class="n">twoPhaseChangeModels</span><span class="o">::</span><span class="n">SchnerrSauer</span><span class="o">::</span><span class="n">mDotAlphal</span><span class="p">()</span> <span class="k">const</span>
 <span class="p">{</span>
     <span class="p">...</span>
@@ -200,7 +761,16 @@ solve
     <span class="c1">// Note: </span>
     <span class="c1">// pCoeff = (3*rho1()*rho2())*sqrt(2/(3*rho1()))</span>
     <span class="c1">//   *rRb(limitedAlpha1)/(rho*sqrt(mag(p - pSat()) + 0.01*pSat()));</span>
-</code></pre></div></div> <p>\(\dot{m}=\underbrace{\alpha_{v}\dot{m}_{c}}_{\text{condensation}}+\underbrace{\alpha_{l}\dot{m}_{v}}_{\text{vaporization}}\)</p> \[\begin{aligned} &amp; \dot{m}_{c} = C_{c}\alpha_{l}\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}max(P-P_{s},0) \geq 0 \\ &amp;\dot{m}_{v} = C_{v}(1+\alpha_{Nuc}-\alpha_{l})\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}min(P-P_{s},0) \leq 0\\ &amp;\text{pcoeff} = \frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}} \end{aligned}\] <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
+</code></pre></div></div>
+<p>\(\dot{m}=\underbrace{\alpha_{v}\dot{m}_{c}}_{\text{condensation}}+\underbrace{\alpha_{l}\dot{m}_{v}}_{\text{vaporization}}\)</p>
+
+\[\begin{aligned}
+&amp; \dot{m}_{c} = C_{c}\alpha_{l}\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}max(P-P_{s},0) \geq 0 \\
+&amp;\dot{m}_{v} = C_{v}(1+\alpha_{Nuc}-\alpha_{l})\frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}min(P-P_{s},0) \leq 0\\
+&amp;\text{pcoeff} = \frac{3\rho_{l}\rho_{v}}{\rho R_{b} \sqrt{|P-P_{s}|}}\sqrt{\frac{2}{3\rho_{l}}}
+\end{aligned}\]
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
 <span class="n">Foam</span><span class="o">::</span><span class="n">twoPhaseChangeModels</span><span class="o">::</span><span class="n">cavitationModel</span><span class="o">::</span><span class="n">Salpha</span>
 <span class="p">(</span>
     <span class="n">volScalarField</span><span class="o">&amp;</span> <span class="n">alpha</span>
@@ -215,7 +785,29 @@ solve
         <span class="n">vDotvAlphal</span> <span class="o">-</span> <span class="n">vDotcAlphal</span> <span class="c1">// Sp</span>
     <span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>The source term in $\alpha_{l}$ equation, $S_{\alpha}$ was seperated as</p> \[\begin{aligned} S_{\alpha} &amp;= \alpha_{l,coeff}\dot{m} \\ &amp;= \alpha_{l,coeff}(\alpha_{l}\dot{m}_{v} + \alpha_{v}\dot{m}_{c}) \\ &amp;= \alpha_{l,coeff}[\alpha_{l}(\dot{m}_{v}-\dot{m}_{c}) + \dot{m}_{c}]\\ &amp;= \underbrace{\alpha_{l}\alpha_{l,coeff}(\dot{m}_{v}-\dot{m}_{c})}_{\alpha_{l} \text{Sp} &lt;0} + \underbrace{\alpha_{l,coeff}\dot{m}_{c}}_{\text{Su} &gt;0} \\ &amp;= \alpha_{l}\text{Sp} + \text{Su} \end{aligned}\] \[\alpha_{l,coeff} = \left(\frac{1}{\rho_l}-\alpha_{l}\left(\frac{1}{\rho_l}-\frac{1}{\rho_v}\right)\right) &gt; 0\] <p>In OpenFOAM, fvm::Sp handles negative source term. fvm::Sp makes the negative source term implicit so it contributes to the diagonal and increase the . This can help convergence when the source term is negative on the rhs (sink term). (ref.: OpenFOAM® Beginner training session)</p> <h4 id="source-term-of-peqn">Source term of pEqn</h4> <p>The mass transfer rate in pEqn, $\dot{m}_{p}$ was defined as</p> \[\dot{m}_{p} = -\frac{\dot{m}}{P-P_{s}} = \underbrace{-\frac{\alpha_{l}\dot{m}_{v}}{P-P_{s}}}_{\dot{m}_{p,v} \leq 0 } - \underbrace{\frac{(1-\alpha_{l})\dot{m}_{c}}{P-P_{s}}}_{\dot{m}_{p,c} \geq 0 } = \dot{m}_{p,v} - \dot{m}_{p,c}\] <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>The source term in $\alpha_{l}$ equation, $S_{\alpha}$ was seperated as</p>
+
+\[\begin{aligned}
+S_{\alpha} &amp;= \alpha_{l,coeff}\dot{m} \\
+&amp;= \alpha_{l,coeff}(\alpha_{l}\dot{m}_{v} + \alpha_{v}\dot{m}_{c}) \\
+&amp;= \alpha_{l,coeff}[\alpha_{l}(\dot{m}_{v}-\dot{m}_{c}) + \dot{m}_{c}]\\
+&amp;= \underbrace{\alpha_{l}\alpha_{l,coeff}(\dot{m}_{v}-\dot{m}_{c})}_{\alpha_{l} \text{Sp} &lt;0} + \underbrace{\alpha_{l,coeff}\dot{m}_{c}}_{\text{Su} &gt;0} \\
+&amp;= \alpha_{l}\text{Sp} + \text{Su}
+\end{aligned}\]
+
+\[\alpha_{l,coeff} = \left(\frac{1}{\rho_l}-\alpha_{l}\left(\frac{1}{\rho_l}-\frac{1}{\rho_v}\right)\right) &gt; 0\]
+
+<p>In OpenFOAM, fvm::Sp handles negative source term. fvm::Sp makes the negative source term implicit so it contributes to the diagonal and increase the . This can help convergence when the source term is negative on the rhs (sink term). (ref.: OpenFOAM® Beginner training session)</p>
+
+<h4 id="source-term-of-peqn">Source term of pEqn</h4>
+<p>The mass transfer rate in pEqn, $\dot{m}_{p}$ was defined as</p>
+
+\[\dot{m}_{p} = -\frac{\dot{m}}{P-P_{s}} = \underbrace{-\frac{\alpha_{l}\dot{m}_{v}}{P-P_{s}}}_{\dot{m}_{p,v} \leq 0 } - \underbrace{\frac{(1-\alpha_{l})\dot{m}_{c}}{P-P_{s}}}_{\dot{m}_{p,c} \geq 0 }  = 
+\dot{m}_{p,v} - \dot{m}_{p,c}\]
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Foam</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">tmp</span><span class="o">&lt;</span><span class="n">Foam</span><span class="o">::</span><span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span><span class="o">&gt;&gt;</span>
 <span class="n">Foam</span><span class="o">::</span><span class="n">twoPhaseChangeModels</span><span class="o">::</span><span class="n">SchnerrSauer</span><span class="o">::</span><span class="n">mDotP</span><span class="p">()</span> <span class="k">const</span>
 <span class="p">{</span>
     <span class="k">const</span> <span class="n">volScalarField</span><span class="o">::</span><span class="n">Internal</span> <span class="n">apCoeff</span><span class="p">(</span><span class="n">limitedAlpha1</span><span class="o">*</span><span class="n">pCoeff</span><span class="p">);</span>
@@ -227,7 +819,14 @@ solve
         <span class="p">(</span><span class="o">-</span><span class="n">Cv_</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">alphaNuc</span><span class="p">()</span> <span class="o">-</span> <span class="n">limitedAlpha1</span><span class="p">)</span><span class="o">*</span><span class="n">neg</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">pSat</span><span class="p">())</span><span class="o">*</span><span class="n">apCoeff</span>
     <span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div> \[\begin{aligned} &amp; \dot{m}_{p,c} = C_{c}(1-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{pos0}(P-P_{s}) =\frac{1-\alpha_{l}}{P-P_{s}}\dot{m}_{c} \geq 0 \\ &amp;\dot{m}_{p,v} = -C_{v}(1+\alpha_{Nuc}-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{neg}(P-P_{s}) = -\frac{\alpha_{l}}{P-P_{s}}\dot{m}_{v} \leq 0 \end{aligned}\] <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Foam::tmp&lt;Foam::fvScalarMatrix&gt;
+</code></pre></div></div>
+
+\[\begin{aligned}
+&amp; \dot{m}_{p,c} = C_{c}(1-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{pos0}(P-P_{s}) =\frac{1-\alpha_{l}}{P-P_{s}}\dot{m}_{c} \geq 0 \\
+&amp;\dot{m}_{p,v} = -C_{v}(1+\alpha_{Nuc}-\alpha_{l})*\underbrace{\alpha_{l}\text{pcoeff}}_{\text{apcoeff}}*\text{neg}(P-P_{s}) = -\frac{\alpha_{l}}{P-P_{s}}\dot{m}_{v} \leq 0
+\end{aligned}\]
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Foam::tmp&lt;Foam::fvScalarMatrix&gt;
 Foam::twoPhaseChangeModels::cavitationModel::Sp_rgh
 (
     const volScalarField&amp; rho,
@@ -245,7 +844,423 @@ Foam::twoPhaseChangeModels::cavitationModel::Sp_rgh
         (vDotvP - vDotcP)*(pSat() - rho()*gh())
       - fvm::Sp(vDotvP - vDotcP, p_rgh);
 }
-</code></pre></div></div> \[\begin{aligned} S_{P}&amp;= \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)\dot{m}\\ &amp; = \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})(P_{s}-P)\\ &amp; = \underbrace{\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P_{s}}_{\text{Su}&gt;0}\quad \underbrace{-\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P}_{P*\text{Sp}&lt;0}\\ \end{aligned}\] <p>(Note: ${1}/{\rho_{l}}-{1}/{\rho_{v}} &lt;0$)</p> <h2 id="temperature-equation">Temperature Equation</h2> <p><code class="language-plaintext highlighter-rouge">coming soon</code></p> ]]></content><author><name></name></author><category term="Solvers"/><category term="OpenFOAM"/><summary type="html"><![CDATA[this post is intended for a thorough introduction to compressibleInterFoam, including the governing equation, implementation in OpenFOAM and some demos.]]></summary></entry><entry><title type="html">An introduction to RSDFoam</title><link href="https://wengzf20.github.io/blog/2023/RSDFoam/" rel="alternate" type="text/html" title="An introduction to RSDFoam"/><published>2023-06-01T00:00:00+00:00</published><updated>2023-06-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2023/RSDFoam</id><content type="html" xml:base="https://wengzf20.github.io/blog/2023/RSDFoam/"><![CDATA[ <script>function togglebibBlock(e){var o=document.getElementById(e);o&&-1!=o.className.indexOf("bibBlock")&&(-1==o.className.indexOf("noshow")?o.className="bibBlock noshow":o.className="bibBlock")}</script> <style>div.noshow{display:none}</style> <p>RSDFoam is a solver for <font color="red">R</font>eal gas <font color="red">S</font>hock and <font color="red">D</font>etonation simulation based on Open<font color="red">FOAM</font>. The present solver was based on <font color="red">the reactive Euler equations</font>. It has considered the nonidealities in the equation of state, thermodynamic functions and mass action law brought about by the interaction between the fluid particles and by their finite volume.</p> <h2 id="implementation">Implementation</h2> <p>RSDFoam was a connection between Cantera and blastFoam. A number of real gas models based on cubic equation of state were implemented by the authors in Cantera 2.4. The solver also utilize the the efficient chemistry solver (CVODE) and flexible input formats in Cantera. BlastFoam offers a number of CFD capabilities including high-order flux evaluation, time integration, etc.</p> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CanteraDiagram-480.webp 480w,/assets/img/forblogs/RSDFoam/CanteraDiagram-800.webp 800w,/assets/img/forblogs/RSDFoam/CanteraDiagram-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/CanteraDiagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Inheritance diagram for implementing real gas models in Cantera. Dashed arrow denotes an instance, indicated onto the dashed line, is created in the class pointed at. </div> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/RSDFoamDiagram-480.webp 480w,/assets/img/forblogs/RSDFoam/RSDFoamDiagram-800.webp 800w,/assets/img/forblogs/RSDFoam/RSDFoamDiagram-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/RSDFoamDiagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Inheritance diagram for classes used in the connection between blastFoam and Cantera. Dashed arrow denotes an instance, indicated onto the dashed line, is created in the class pointed at. </div> <h2 id="validation">Validation</h2> <p>RSDFoam has been thoroughly validated against analytical solutions, previous numerical simulation results and experimental data. The satisfactory agreement demonstrates the accuracy and robustness of the solver for real gas based shock and detonation simulation.</p> <h3 id="shock-tube-problem">shock tube problem</h3> <div class="row"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_P-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_P-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_P-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/Sod_P.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_rho-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_rho-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_rho-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/Sod_rho.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_T-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_T-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_T-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/Sod_T.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Analytical and numerical solutions of Sod shock tube problem at 0.05 s. </div> <h3 id="oblique-shock">Oblique shock</h3> <div class="row justify-content-sm-center"> <div class="col-sm-6 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ObliquePolar-480.webp 480w,/assets/img/forblogs/RSDFoam/ObliquePolar-800.webp 800w,/assets/img/forblogs/RSDFoam/ObliquePolar-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/ObliquePolar.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> The oblique shock wave angle and deflection angle relation calculated for IG gas and RK gas. </div> <h3 id="constant-volume-reactor">Constant volume reactor</h3> <div class="row justify-content-sm-center"> <div class="col-sm-12 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CVIDT-480.webp 480w,/assets/img/forblogs/RSDFoam/CVIDT-800.webp 800w,/assets/img/forblogs/RSDFoam/CVIDT-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/CVIDT.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Ignition delay time of stoichiometric (a) H_{2}-air and (b) DME-O2 mixtures calculated with IG and RK EoS. The second row shows the relative differences of IDT obtained with IG and RK EoS. </div> <h3 id="detonation-speed">Detonation speed</h3> <div class="row justify-content-sm-center"> <div class="col-sm-8 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/DetSpeed-480.webp 480w,/assets/img/forblogs/RSDFoam/DetSpeed-800.webp 800w,/assets/img/forblogs/RSDFoam/DetSpeed-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/DetSpeed.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Comparison of steady detonation speed calculated with CJ theory and RSDFoam, and measured by Bauer et al [1]. </div> <h3 id="reaction-zone-structure-of-steady-planar-detonation">Reaction zone structure of steady planar detonation</h3> <div class="row justify-content-sm-center"> <div class="col-sm-4 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_P-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_P-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_P-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/ZND_P.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> <div class="col-sm-4 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_T-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_T-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_T-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/ZND_T.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> <div class="col-sm-4 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_massFraction-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_massFraction-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_massFraction-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/ZND_massFraction.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Flow structure of detonations obtained with 1D unsteady simulation and the ZND theory. </div> <h3 id="pulsating-detonation">Pulsating detonation</h3> <div class="row justify-content-sm-center"> <div class="col-sm-12 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/pulsatingDet-480.webp 480w,/assets/img/forblogs/RSDFoam/pulsatingDet-800.webp 800w,/assets/img/forblogs/RSDFoam/pulsatingDet-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/pulsatingDet.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Shock pressure of pulsating detonation. Four mesh sizes were used for the convergence study. </div> <h3 id="2d-cellular-detonation">2D Cellular detonation</h3> <div class="row justify-content-sm-center"> <div class="col-sm-12 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CellularStructure-480.webp 480w,/assets/img/forblogs/RSDFoam/CellularStructure-800.webp 800w,/assets/img/forblogs/RSDFoam/CellularStructure-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/forblogs/RSDFoam/CellularStructure.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <div class="caption"> Numerical soot foils obtained with (a) IG EoS and (b) NA EoS. </div> <h2 id="to-use-the-solver">To use the solver</h2> <p>Source codes and demos are available upon reasonable request.</p> <p>Please cite our papers if you use this solver for your research</p> <pre>
+</code></pre></div></div>
+
+\[\begin{aligned}
+S_{P}&amp;= \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)\dot{m}\\
+&amp; = \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})(P_{s}-P)\\
+&amp; = \underbrace{\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P_{s}}_{\text{Su}&gt;0}\quad \underbrace{-\left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)(\dot{m}_{p,v} - \dot{m}_{p,c})P}_{P*\text{Sp}&lt;0}\\
+\end{aligned}\]
+
+<p>(Note: ${1}/{\rho_{l}}-{1}/{\rho_{v}} &lt;0$)</p>
+
+<h2 id="temperature-equation">Temperature Equation</h2>
+<p><code class="language-plaintext highlighter-rouge">coming soon</code></p>
+
+<!-- ```bash
+fvScalarMatrix TEqn
+(
+    fvm::ddt(rho, T) + fvm::div(rhoPhi, T) - fvm::Sp(contErr, T)
+    - fvm::laplacian(turbulence.alphaEff(), T)
+    + (
+        fvc::div(fvc::absolute(phi, U), p)()() // - contErr/rho*p
+        + (fvc::ddt(rho, K) + fvc::div(rhoPhi, K))()()
+        - (U()&(fvModels.source(rho, U)&U)()) - contErr*K
+    )
+    *(
+        alpha1()/mixture.thermo1().Cv()()
+        + alpha2()/mixture.thermo2().Cv()()
+    )
+    ==
+    fvModels.source(rho, T)
+);
+```
+ $$\frac{\partial \rho T}{\partial t} + \nabla\cdot(\rho \boldsymbol{U} T) - err*T - \nabla\cdot(\alpha_{eff}\nabla T) $$ 
+ $$+ (\frac{\alpha_{1}}{C_{v,1}} + \frac{\alpha_{2}}{C_{v,2}})$$
+ $$*[\nabla\cdot(U p) + \frac{\partial \rho K}{\partial t} + \nabla\cdot(\rho\boldsymbol{U} K) $$
+ 
+ $$- U\otimes(fvSource(\rho U)\otimes U) - err*K]$$ 
+ $$== fvSource(\rho T)$$
+
+  $$\frac{\partial \rho T}{\partial t} + \nabla\cdot(\rho \boldsymbol{U} T) - \nabla\cdot(\alpha_{eff}\nabla T) $$ 
+ $$+ (\frac{\alpha_{1}}{C_{v,1}} + \frac{\alpha_{2}}{C_{v,2}})*[\nabla\cdot(U p) + \frac{\partial \rho K}{\partial t} + \nabla\cdot(\rho\boldsymbol{U} K)]== 0$$
+
+## Counter-gradient transport (interfaceCompression scheme)
+In the VoF treatment, a common closure used for counter-gradient transport has the form
+> D.A.P. Solis, “Development of a compressible VOF solver for cavitating flows,” (n.d.).
+
+$$
+\begin{aligned}
+& \alpha_1 \rho \frac{\mathrm{D} T}{\mathrm{D} t}+\frac{\alpha_{\mathrm{l}}}{c_{p, 1}} \rho \frac{\mathrm{D} K}{\mathrm{D} t}=\left(\frac{\partial p}{\partial t}+\nabla \cdot\left(k_{\mathrm{l}} \nabla T\right)\right) \frac{\alpha_{\mathrm{l}}}{c_{p, 1}}+\frac{\alpha_{\mathrm{l}}}{c_{p, 1}} \dot{m}_1 h_{\mathrm{g}}-\frac{\rho}{\rho_{\mathrm{l}} c_{p, 1}} \dot{m}_1 h_1 \\
+& \alpha_{\mathrm{g}} \rho \frac{\mathrm{D} T}{\mathrm{D} t}+\frac{\alpha_{\mathrm{g}}}{c_{p, \mathrm{~g}}} \rho \frac{\mathrm{D} K}{\mathrm{D} t}=\left(\frac{\partial p}{\partial t}+\nabla \cdot\left(k_{\mathrm{g}} \nabla T\right)\right) \frac{\alpha_{\mathrm{g}}}{c_{p, \mathrm{~g}}}-\frac{\alpha_{\mathrm{g}}}{c_{p, \mathrm{~g}}} \dot{m}_{\mathrm{g}} h_{\mathrm{g}}
+\end{aligned}
+$$
+
+$$
+\begin{array}{r}
+\rho \frac{\mathrm{D} T}{\mathrm{D} t}+\left(\frac{\alpha_1}{c_{p, 1}}+\frac{\alpha_{\mathrm{g}}}{c_{p, \mathrm{~g}}}\right)\left(\rho \frac{\mathrm{D} K}{\mathrm{D} t}-\frac{\partial p}{\partial t}\right)-\left(\alpha_1 \nabla \cdot(\right. \\
+\left.\cdot\left(\alpha_{\mathrm{Eff}, 1} \nabla T\right)+\alpha_{\mathrm{g}} \nabla \cdot\left(\alpha_{\mathrm{Eff}, \mathrm{g}} \nabla T\right)\right)= \\
+\dot{m}_1 h_{\mathrm{g}}\left(\frac{\alpha_1}{c_{p, 1}}+\frac{\alpha_{\mathrm{g}}}{c_{p, \mathrm{~g}}}\right)-\frac{\rho}{\rho_1 c_{p, 1}} \dot{m}_1 h_1,
+\end{array}
+$$
+
+## Reference
+> 1. $\alpha$ equation: Shi, X., Zheng, K., & Yin, B. (2023). Numerical method for gas-liquid two-phase flow with phase change heat transfer considering compressibility using OpenFOAM. International Journal of Thermal Sciences, 188, 108195. 
+> 2. momentum equation and coupling: S.T. Miller, H. Jasak, D.A. Boger, E.G. Paterson, and A. Nedungadi, “A pressure-based, compressible, two-phase flow finite volume method for underwater explosions,” Computers & Fluids 87, 132–143 (2013).  -->]]></content><author><name></name></author><category term="Solvers" /><category term="OpenFOAM" /><summary type="html"><![CDATA[this post is intended for a thorough introduction to compressibleInterFoam, including the governing equation, implementation in OpenFOAM and some demos.]]></summary></entry><entry><title type="html">An introduction to RSDFoam</title><link href="https://wengzf20.github.io/blog/2023/RSDFoam/" rel="alternate" type="text/html" title="An introduction to RSDFoam" /><published>2023-06-01T00:00:00+00:00</published><updated>2023-06-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2023/RSDFoam</id><content type="html" xml:base="https://wengzf20.github.io/blog/2023/RSDFoam/"><![CDATA[<!-- the script and style -->
+<script>
+function togglebibBlock(blockid) {
+  var id = document.getElementById(blockid);
+  if (id) {
+    if(id.className.indexOf('bibBlock') != -1) {
+        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
+    }
+  } else {
+    return;
+  }
+}
+</script>
+
+<style>
+div.noshow { display: none; }
+div.bibBlock {}
+</style>
+
+<!-- the script and style -->
+
+<p>RSDFoam is a solver for <font color="red">R</font>eal gas <font color="red">S</font>hock and <font color="red">D</font>etonation simulation based on Open<font color="red">FOAM</font>. The present solver was based on <font color="red">the reactive Euler equations</font>. It has considered the nonidealities in the equation of state, thermodynamic functions and mass action law brought about by the interaction between the fluid particles and by their finite volume.</p>
+
+<h2 id="implementation">Implementation</h2>
+<p>RSDFoam was a connection between Cantera and blastFoam. A number of real gas models based on cubic equation of state were implemented by the authors in Cantera 2.4. The solver also utilize the the efficient chemistry solver (CVODE) and flexible input formats in Cantera. BlastFoam offers a number of CFD capabilities including high-order flux evaluation, time integration, etc.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CanteraDiagram-480.webp 480w,/assets/img/forblogs/RSDFoam/CanteraDiagram-800.webp 800w,/assets/img/forblogs/RSDFoam/CanteraDiagram-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/CanteraDiagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Inheritance diagram for implementing real gas models in Cantera. Dashed arrow denotes an instance, indicated onto the dashed line, is created in the class pointed at.
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/RSDFoamDiagram-480.webp 480w,/assets/img/forblogs/RSDFoam/RSDFoamDiagram-800.webp 800w,/assets/img/forblogs/RSDFoam/RSDFoamDiagram-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/RSDFoamDiagram.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Inheritance diagram for classes used in the connection between blastFoam and Cantera. Dashed arrow denotes an instance, indicated onto the dashed line, is created in the class pointed at.
+</div>
+
+<h2 id="validation">Validation</h2>
+<p>RSDFoam has been thoroughly validated against analytical solutions, previous numerical simulation results and experimental data. The satisfactory agreement demonstrates the accuracy and robustness of the solver for real gas based shock and detonation simulation.</p>
+
+<h3 id="shock-tube-problem">shock tube problem</h3>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_P-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_P-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_P-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/Sod_P.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_rho-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_rho-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_rho-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/Sod_rho.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/Sod_T-480.webp 480w,/assets/img/forblogs/RSDFoam/Sod_T-800.webp 800w,/assets/img/forblogs/RSDFoam/Sod_T-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/Sod_T.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Analytical and numerical solutions of Sod shock tube problem at 0.05 s.
+</div>
+
+<h3 id="oblique-shock">Oblique shock</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ObliquePolar-480.webp 480w,/assets/img/forblogs/RSDFoam/ObliquePolar-800.webp 800w,/assets/img/forblogs/RSDFoam/ObliquePolar-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/ObliquePolar.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    The oblique shock wave angle and deflection angle relation calculated for IG gas and RK gas.
+</div>
+
+<h3 id="constant-volume-reactor">Constant volume reactor</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-12 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CVIDT-480.webp 480w,/assets/img/forblogs/RSDFoam/CVIDT-800.webp 800w,/assets/img/forblogs/RSDFoam/CVIDT-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/CVIDT.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Ignition delay time of stoichiometric (a) H_{2}-air and (b) DME-O2 mixtures calculated with IG and RK EoS. The second row shows the relative differences of IDT obtained with IG and RK EoS.
+</div>
+
+<h3 id="detonation-speed">Detonation speed</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/DetSpeed-480.webp 480w,/assets/img/forblogs/RSDFoam/DetSpeed-800.webp 800w,/assets/img/forblogs/RSDFoam/DetSpeed-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/DetSpeed.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Comparison of steady detonation speed calculated with CJ theory and RSDFoam, and measured by Bauer et al [1].
+</div>
+
+<h3 id="reaction-zone-structure-of-steady-planar-detonation">Reaction zone structure of steady planar detonation</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-4 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_P-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_P-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_P-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/ZND_P.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_T-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_T-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_T-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/ZND_T.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+    <div class="col-sm-4 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/ZND_massFraction-480.webp 480w,/assets/img/forblogs/RSDFoam/ZND_massFraction-800.webp 800w,/assets/img/forblogs/RSDFoam/ZND_massFraction-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/ZND_massFraction.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Flow structure of detonations obtained with 1D unsteady simulation and the ZND theory. 
+</div>
+
+<h3 id="pulsating-detonation">Pulsating detonation</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-12 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/pulsatingDet-480.webp 480w,/assets/img/forblogs/RSDFoam/pulsatingDet-800.webp 800w,/assets/img/forblogs/RSDFoam/pulsatingDet-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/pulsatingDet.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Shock pressure of pulsating detonation. Four mesh sizes were used for the convergence study.
+</div>
+
+<h3 id="2d-cellular-detonation">2D Cellular detonation</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-12 mt-3 mt-md-0">
+        
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/forblogs/RSDFoam/CellularStructure-480.webp 480w,/assets/img/forblogs/RSDFoam/CellularStructure-800.webp 800w,/assets/img/forblogs/RSDFoam/CellularStructure-1400.webp 1400w," sizes="95vw" type="image/webp" />
+    
+    <img src="/assets/img/forblogs/RSDFoam/CellularStructure.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Numerical soot foils obtained with (a) IG EoS and (b) NA EoS. 
+</div>
+
+<h2 id="to-use-the-solver">To use the solver</h2>
+<p>Source codes and demos are available upon reasonable request.</p>
+
+<p>Please cite our papers if you use this solver for your research</p>
+<pre>
 @article{WengCAF2023,
   title = {Implementation of an  Solver for Shock and Detonation Simulation at High Pressure},
   author = {Weng, Zifeng and M{\'e}vel, R{\'e}my},
@@ -254,11 +1269,37 @@ Foam::twoPhaseChangeModels::cavitationModel::Sp_rgh
   pages = {106012},
   doi = {10.1016/j.compfluid.2023.106012}
 }
-</pre> <p><a href="javascript:togglebibBlock('ref2')" class="textlink">Previous works using this solver</a></p> <div id="ref2" class="bibBlock noshow"> <pre>
+</pre>
+
+<p><a href="javascript:togglebibBlock('ref2')" class="textlink">Previous works using this solver</a></p>
+<div id="ref2" class="bibBlock noshow">
+<pre>
 [1] Zifeng Weng, Rémy Mével. An OpenFOAM Solver for Shock and Detonation Simulation in Real Gas. The 29th ICDERS. At: Siheung, South Korea (2023).
 [2] Zifeng Weng, Rémy Mével. Implementation of an OpenFOAM solver for shock and detonation simulation at high pressure.  Computers &amp; Fluids 265, 106012 (2023).
 [3] Zifeng Weng, Rémy Mével. Linear and non-linear stability of gaseous detonation at elevated pressure. Combustion and Flame 262, 113361 (2024).
 [4] Zifeng Weng, Rémy Mével. Dynamics of detonation cellular structure in linear and nonlinear instability regimes. (under reviewed)
-</pre> </div> <p><a href="javascript:togglebibBlock('ref1')" class="textlink">References</a></p> <div id="ref1" class="bibBlock noshow"> <pre>
+</pre>
+</div>
+
+<p><a href="javascript:togglebibBlock('ref1')" class="textlink">References</a></p>
+<div id="ref1" class="bibBlock noshow">
+<pre>
 [1] R.G. Schmitt, and P.B. Butler, “Detonation Properties of Gases at Elevated Initial Pressures,” Combustion Science and Technology 106(1–3), 167–191 (1995).
-</pre> </div>]]></content><author><name></name></author><category term="Solvers"/><category term="OpenFOAM"/><summary type="html"><![CDATA[an in-house solver for real gas shock and detonation simulation]]></summary></entry><entry><title type="html">Prepare figures for journal articles</title><link href="https://wengzf20.github.io/blog/2023/jupyter-notebook/" rel="alternate" type="text/html" title="Prepare figures for journal articles"/><published>2023-05-01T00:00:00+00:00</published><updated>2023-05-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2023/jupyter-notebook</id><content type="html" xml:base="https://wengzf20.github.io/blog/2023/jupyter-notebook/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p> <div class="jupyter-notebook" style="position: relative; width: 100%; margin: 0 auto;"> <div class="jupyter-notebook-iframe-container"> <iframe src="/assets/jupyter/plotFig.ipynb.html" style="position: absolute; top: 0; left: 0; border-style: none;" width="100%" height="100%" onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe> </div> </div>]]></content><author><name></name></author><category term="Code"/><category term="artworks"/><summary type="html"><![CDATA[an summary of codes for preparing figures based on python]]></summary></entry></feed>
+</pre>
+</div>]]></content><author><name></name></author><category term="Solvers" /><category term="OpenFOAM" /><summary type="html"><![CDATA[an in-house solver for real gas shock and detonation simulation]]></summary></entry><entry><title type="html">Prepare figures for journal articles</title><link href="https://wengzf20.github.io/blog/2023/jupyter-notebook/" rel="alternate" type="text/html" title="Prepare figures for journal articles" /><published>2023-05-01T00:00:00+00:00</published><updated>2023-05-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2023/jupyter-notebook</id><content type="html" xml:base="https://wengzf20.github.io/blog/2023/jupyter-notebook/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+
+
+
+
+  <div
+  class="jupyter-notebook"
+  style="position: relative; width: 100%; margin: 0 auto;">
+  <div class="jupyter-notebook-iframe-container">
+    <iframe
+      src="/assets/jupyter/plotFig.ipynb.html"
+      style="position: absolute; top: 0; left: 0; border-style: none;"
+      width="100%"
+      height="100%"
+      onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe>
+  </div>
+</div>]]></content><author><name></name></author><category term="Code" /><category term="artworks" /><summary type="html"><![CDATA[an summary of codes for preparing figures based on python]]></summary></entry></feed>
