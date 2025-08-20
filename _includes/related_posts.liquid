@@ -16,3 +16,9 @@
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
   </li>
 {% endfor %}
+
+<!-- Add donation button after related posts -->
+{% if page.show_donation == true and site.buy_me_a_coffee_slug %}
+  <p class="mb-2">If you found this article helpful, consider buying me a coffee! ☕</p>
+  {% include donation.liquid %}
+{% endif %}

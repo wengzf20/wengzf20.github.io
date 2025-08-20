@@ -374,6 +374,13 @@ enable_medium_zoom: true # enables image zoom feature (as on medium.com)
 enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
 
 # -----------------------------------------------------------------------------
+# Donation settings
+# -----------------------------------------------------------------------------
+show_donation: true  # Show donation section globally
+buy_me_a_coffee: https://buymeacoffee.com/zfweng  # Your Buy Me a Coffee link
+buy_me_a_coffee_slug: zfweng  # Your Buy Me a Coffee slug
+
+# -----------------------------------------------------------------------------
 # Library versions
 # -----------------------------------------------------------------------------
 
