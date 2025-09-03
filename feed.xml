@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wengzf20.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wengzf20.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-08-20T11:00:50+00:00</updated><id>https://wengzf20.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wengzf20.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wengzf20.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-09-03T13:38:14+00:00</updated><id>https://wengzf20.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 </subtitle><entry><title type="html">functionObjects in OpenFOAM</title><link href="https://wengzf20.github.io/blog/2024/functionObjects/" rel="alternate" type="text/html" title="functionObjects in OpenFOAM" /><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/functionObjects</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/functionObjects/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
 
 <h3> functionobject is created when creating runTime </h3>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for the implementation of functionObjects in OpenFOAM]]></summary></entry><entry><title type="html">PeleLMex solver</title><link href="https://wengzf20.github.io/blog/2024/PeleLMex/" rel="alternate" type="text/html" title="PeleLMex solver" /><published>2024-08-01T00:00:00+00:00</published><updated>2024-08-01T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/PeleLMex</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/PeleLMex/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
@@ -336,10 +336,115 @@ make <span class="o">&amp;&amp;</span> make <span class="nb">install</span>
 </code></pre></div></div>
 <p>Here we use linear interpolation as an example,</p>
 
+<p>coming soon</p>
+
 <p><br /></p>
 <h3> Implementation of mapFields </h3>
 
-<p>coming soon</p>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for running simulations in OpenFOAM.]]></summary></entry><entry><title type="html">Journals and their abbreviated titles</title><link href="https://wengzf20.github.io/blog/2024/journalAbbreviation/" rel="alternate" type="text/html" title="Journals and their abbreviated titles" /><published>2024-03-06T00:00:00+00:00</published><updated>2024-03-06T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/journalAbbreviation</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/journalAbbreviation/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
+<p>The mapFields is realized with two steps,</p>
+<ol>
+  <li>
+    <p>Map mesh via <code class="language-plaintext highlighter-rouge">meshToMesh0</code> class</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">meshToMesh0</span> <span class="nf">meshToMesh0Interp</span>
+ <span class="p">(</span>
+     <span class="n">meshSource</span><span class="p">,</span>
+     <span class="n">meshTarget</span><span class="p">,</span>
+     <span class="n">patchMap</span><span class="p">,</span> <span class="c1">// neglected for consistent map</span>
+     <span class="n">cuttingPatches</span>
+ <span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Map fields found in the target case via template class <code class="language-plaintext highlighter-rouge">MapConsistentVolFields</code></p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">MapVolFields</span><span class="o">&lt;</span><span class="n">scalar</span><span class="o">&gt;</span> <span class="c1">// type includes vector, sphericalTensor, symmTensor, tensor</span>
+ <span class="p">(</span>
+     <span class="n">objects</span><span class="p">,</span>
+     <span class="n">meshToMesh0Interp</span><span class="p">,</span>
+     <span class="n">mapOrder</span><span class="p">,</span>
+     <span class="n">CombineOp</span><span class="o">&lt;</span><span class="n">scalar</span><span class="o">&gt;</span><span class="p">()</span>
+ <span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>The first step takes much longer time over the whole mapFields execution especially for large mesh size.</p>
+
+<h4> meshToMesh0 class </h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">meshToMesh0</code> class finds mapping between source and target mesh via <code class="language-plaintext highlighter-rouge">calcAddressing()</code>  function, which mainly has four steps</p>
+
+<ol>
+  <li>
+    <p>Visit all boundaries and mark the cell next to the boundary.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// Set reference to boundary</span>
+ <span class="k">const</span> <span class="n">polyPatchList</span><span class="o">&amp;</span> <span class="n">patchesFrom</span> <span class="o">=</span> <span class="n">fromMesh_</span><span class="p">.</span><span class="n">boundaryMesh</span><span class="p">();</span>
+
+ <span class="n">forAll</span><span class="p">(</span><span class="n">patchesFrom</span><span class="p">,</span> <span class="n">patchi</span><span class="p">)</span>
+ <span class="p">{</span>
+     <span class="c1">// Get reference to cells next to the boundary</span>
+     <span class="k">const</span> <span class="n">labelUList</span><span class="o">&amp;</span> <span class="n">bCells</span> <span class="o">=</span> <span class="n">patchesFrom</span><span class="p">[</span><span class="n">patchi</span><span class="p">].</span><span class="n">faceCells</span><span class="p">();</span>
+
+     <span class="n">forAll</span><span class="p">(</span><span class="n">bCells</span><span class="p">,</span> <span class="n">facei</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="n">boundaryCell</span><span class="p">[</span><span class="n">bCells</span><span class="p">[</span><span class="n">facei</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>construct octree</p>
+
+    <p>The octree is used to search cell that containing a given point</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> indexedOctree&lt;treeDataCell&gt; oc
+ (
+     treeDataCell(false, fromMesh_, polyMesh::CELL_TETS),
+     shiftedBb,      // overall bounding box
+     8,              // maxLevel
+     10,             // leafsize
+     6.0             // duplicity
+ );
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>calculate addressing for internal points and boundary points <strong>(Most time consuming step)</strong></p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// realized in calculateMeshToMesh0Addressing.C</span>
+ <span class="n">cellAddresses</span>
+ <span class="p">(</span>
+     <span class="n">cellAddressing_</span><span class="p">,</span>
+     <span class="n">toMesh_</span><span class="p">.</span><span class="n">cellCentres</span><span class="p">(),</span>
+     <span class="n">fromMesh_</span><span class="p">,</span>
+     <span class="n">boundaryCell</span><span class="p">,</span>
+     <span class="n">oc</span>
+ <span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>In this step, there are three levels of search. Both level 2 and 3 use octree for search which is the major computation overhead.</p>
+
+    <p><strong>Level 1: Simple neighbour array search.</strong></p>
+
+    <p>It starts from a cell zero, searches its neighbours and finds one which is nearer to the target point than the current position.</p>
+
+    <p>The location of the “current position” is reset to that cell and search through the neighbours continues. The search is finished when all the neighbours of the cell are farther from the target point than the current cell</p>
+
+    <p>For the nearest cell to the target point is found in the source mesh, check if it is target point is inside the cell (the finite volume element) using <code class="language-plaintext highlighter-rouge">polyMesh::pointInCell</code></p>
+
+    <p><strong>Level 2</strong>
+ Handle boundary points</p>
+
+    <p><strong>Level 3</strong>
+ Handle points in other regions of the doamin</p>
+  </li>
+  <li>
+    <p>simplification for mapping translated mesh</p>
+
+    <p>In most of my preprocessing, the target mesh the translated source mesh in one direction, in this case, the Level 2 and 3 search can be neglected. The octree construction is also neglected.</p>
+  </li>
+</ol>]]></content><author><name></name></author><category term="Notes" /><category term="Code" /><summary type="html"><![CDATA[notes for running simulations in OpenFOAM.]]></summary></entry><entry><title type="html">Journals and their abbreviated titles</title><link href="https://wengzf20.github.io/blog/2024/journalAbbreviation/" rel="alternate" type="text/html" title="Journals and their abbreviated titles" /><published>2024-03-06T00:00:00+00:00</published><updated>2024-03-06T00:00:00+00:00</updated><id>https://wengzf20.github.io/blog/2024/journalAbbreviation</id><content type="html" xml:base="https://wengzf20.github.io/blog/2024/journalAbbreviation/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">This page will receive periodic updates.</code></p>
 
 <p>The abbreviated title is generated via <a href="https://cassi.cas.org/search.jsp">CAS Source Index (CASSI) Search Tool</a>.</p>
 
