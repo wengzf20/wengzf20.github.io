@@ -120,6 +120,6 @@ Recently, the study was extended to 2D cellular detonation. More results are com
 <a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
 <div id="ref2" class="bibBlock noshow">
 <div class="publications" >
-  {% bibliography --group_by none --query @*[key=WENGPhys.Fluids2021 || key=WENGCombustionandFlame2023 || key=WENGCombustionandFlame2022 || key=WENGCombustionandFlame2023b || key=LSANA2023]* %}
+  {% bibliography --group_by none --query @*[key=WENGPhys.Fluids2021 || key=WENGCombustionandFlame2023 || key=WENGCombustionandFlame2022 || key=WENGCombustionandFlame2023b || key=LSANA2023 || key=LSA_PCI_2024 || key=cellularDet_CNF_2025]* %}
 </div>
 </div>
