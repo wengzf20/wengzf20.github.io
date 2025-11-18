@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p><a href="https://www.tsinghua.edu.cn/"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Beijing, China</a></p>
-    <p><a href="mailto:wengzf20@mails.tsinghua.edu.cn"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></p>
+    <p><a href="mailto:zfweng98@gmail.com"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></p>
     <p><a href="https://scholar.google.com/citations?user=iQ73Y8UAAAAJ"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></p>
     <p><a href="https://www.researchgate.net/profile/Zifeng-Weng"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> ResearchGate</a></p>
 
