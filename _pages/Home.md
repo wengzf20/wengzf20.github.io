@@ -19,7 +19,7 @@ latest_posts: true # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-Zifeng **Weng** is a research fellow at <a href="https://www.cares.cam.ac.uk">Cambridge CARESy</a>, National University of Singapore.  His research interests include
+Zifeng **Weng** is a research fellow at <a href="https://www.cares.cam.ac.uk">Cambridge CARES</a>, <a href="https://nus.edu.sg">National University of Singapore</a>.  His research interests include
 
 - Numerical simulation for renewable fuels in energy conversion processes
 - Advanced concepts and their fundamentals in energy and propulsion systems
