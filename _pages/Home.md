@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: Zifeng_Profile.jpg
+  image: HomeProfile.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p><a href="https://www.tsinghua.edu.cn/"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Beijing, China</a></p>
