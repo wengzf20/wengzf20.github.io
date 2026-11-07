@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Zifeng
-middle_name: 
+middle_name:
 last_name: Weng
 email: zfweng98@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -17,7 +17,7 @@ lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: site-logo.png #⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://wengzf20.github.io # the base hostname & protocol for your site
-baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
+baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
@@ -122,7 +122,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name:  # blog_name will be displayed in your blog page
+blog_name: # blog_name will be displayed in your blog page
 blog_description: a collection of research notes
 permalink: /blog/:year/:title/
 
@@ -376,9 +376,9 @@ enable_progressbar: true # enables a horizontal progress bar linked to the verti
 # -----------------------------------------------------------------------------
 # Donation settings
 # -----------------------------------------------------------------------------
-show_donation: true  # Show donation section globally
-buy_me_a_coffee: https://buymeacoffee.com/zfweng  # Your Buy Me a Coffee link
-buy_me_a_coffee_slug: zfweng  # Your Buy Me a Coffee slug
+show_donation: true # Show donation section globally
+buy_me_a_coffee: https://buymeacoffee.com/zfweng # Your Buy Me a Coffee link
+buy_me_a_coffee_slug: zfweng # Your Buy Me a Coffee slug
 
 # -----------------------------------------------------------------------------
 # Library versions

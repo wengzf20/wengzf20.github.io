@@ -4,9 +4,10 @@ title: Transcritical fluid
 description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The fluid under transcritical or supercritical states exhibits multi-scale physical behaviours and pose challenges to numerical simulation ...
 img: assets/img/project_thumbnail/N2Jet.png
 importance: 2
-category: 
+category:
 giscus_comments: false
 ---
+
 <!-- the script and style -->
 <script>
 function togglebibBlock(blockid) {
@@ -24,7 +25,7 @@ function togglebibBlock(blockid) {
 <style>
 div.noshow { display: none; }
 div.bibBlock {}
-</style> 
+</style>
 <!-- the script and style -->
 
 <h2> Pressure-based supercritical flow solver </h2>
@@ -61,6 +62,7 @@ Injection, mixing and combustion processes in rocket engines typically take plac
 </div>
 
 <a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
+
 <div id="ref1" class="bibBlock noshow">
 <pre>
 [1] <img src="/assets/img/project_thumbnail/deepflame.jpg" style="height: 2em;vertical-align: middle;"> <a href="https://github.com/deepmodeling/deepflame-dev">https://github.com/deepmodeling/deepflame-dev</a>

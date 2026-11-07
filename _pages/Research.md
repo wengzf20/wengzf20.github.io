@@ -5,7 +5,7 @@ permalink: /Research/
 description: a collection of research topics
 nav: true
 nav_order: 2
-display_categories: 
+display_categories:
 horizontal: false
 ---
 
@@ -13,6 +13,7 @@ horizontal: false
 <div class="projects">
 
 <!-- Display projects without categories -->
+
 {% assign sorted_projects = site.projects | sort: "importance" %}
 
   <!-- Generate cards for each project -->

@@ -13,7 +13,6 @@ nav_order: 3
 {% bibliography --file papers.bib %}
 </div>
 
-
 <h2>Peer-reviewed conference papers </h2>
 <div class="publications">
 {% bibliography --file conference.bib %}

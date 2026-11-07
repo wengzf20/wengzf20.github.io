@@ -6,9 +6,10 @@ inline: false
 related_posts: false
 ---
 
-Our recent work on high pressure spherical flame was accepted by Combustion and Flame. 
+Our recent work on high pressure spherical flame was accepted by Combustion and Flame.
 
 ---
+
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=SphericalFlame2024]* %}
 </div>

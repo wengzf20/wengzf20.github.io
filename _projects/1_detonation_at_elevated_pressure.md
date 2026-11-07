@@ -4,10 +4,11 @@ title: Detonation wave at elevated pressure
 description: Focus on the initiation, structure and stability of gaseous detonation at high preassure where real gas effects are non-negligible.
 img: assets/img/project_thumbnail/sootfoil.png
 importance: 1
-category: 
+category:
 related_publications: false
 # github: true
 ---
+
 <!-- the script and style -->
 <script>
 function togglebibBlock(blockid) {
@@ -25,7 +26,7 @@ function togglebibBlock(blockid) {
 <style>
 div.noshow { display: none; }
 div.bibBlock {}
-</style> 
+</style>
 <!-- the script and style -->
 
 <p style="text-align: justify;">
@@ -59,7 +60,6 @@ We proposed a fair comparison of the two models. We demonstrated that the critic
     Main steps to establish the CC and CDR theoretical models with consistent blast wave models and critical conditions. TS stands for Taylor–Sedov.
 </div>
 
-
 <p style="text-align: justify;">
 To study the critical state of DDI at elevated initial pressure, the critical decay rate model was extended from perfect gas to real gas to evaluate the real gas effects. Real gas models based on Noble-Abel and van der Waals equation of state were considered and approximated analytical solutions were obtained. Compared to the perfect gas based results, the finite molecular volume results in easier initiation while the inter-molecular interaction results in more difficult initiation. 
 </p>
@@ -73,14 +73,12 @@ To study the critical state of DDI at elevated initial pressure, the critical de
     Comparison of the real gas effects on the critical decay time calculated with the quasi-unsteady model (symbol) and asymptotic solutions (line).
 </div>
 
-
 <h2> 2. Detonation structure </h2>
 <p style="text-align: justify;">
 Detonation wave is characterized by multi-scale structures. The reaction zone structure governs the heat release which coupled with the shock dynamics. The detonation front constitutes of many groups of triple-shock wave, i.e. Mach stem, incident shock and transvere shock connecting via a triple point. The trajectory of triple point forms the cellular structure that could be measured with sootfoil technique in experiments.
 </p>
 
-The detonation speed, reaction zone structure of steady detonation wave were studied for both perfect gas and real gas models. Larger detonation speed was obtained for real gas model which agrees better with experimental data. The reaction zone structure depends on various aspects in the real gas model. In addition, uncertainty quantification was performed for parameters in real gas model. 
-
+The detonation speed, reaction zone structure of steady detonation wave were studied for both perfect gas and real gas models. Larger detonation speed was obtained for real gas model which agrees better with experimental data. The reaction zone structure depends on various aspects in the real gas model. In addition, uncertainty quantification was performed for parameters in real gas model.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-10 mt-3 mt-md-0">
@@ -106,8 +104,8 @@ Linear and non-linear stability analysis was performed for 1D detonation for Nob
 
 Recently, the study was extended to 2D cellular detonation. More results are coming.
 
-
 <a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
+
 <div id="ref1" class="bibBlock noshow">
 <pre>
 [1] R.G. Schmitt, and P.B. Butler, “Detonation Properties of Gases at Elevated Initial Pressures,” Combustion Science and Technology 106(1–3), 167–191 (1995).
@@ -118,6 +116,7 @@ Recently, the study was extended to 2D cellular detonation. More results are com
 </div>
 
 <a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
+
 <div id="ref2" class="bibBlock noshow">
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=WENGPhys.Fluids2021 || key=WENGCombustionandFlame2023 || key=WENGCombustionandFlame2022 || key=WENGCombustionandFlame2023b || key=LSANA2023 || key=LSA_PCI_2024 || key=cellularDet_CNF_2025]* %}

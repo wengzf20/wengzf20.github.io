@@ -6,11 +6,12 @@ inline: false
 related_posts: false
 ---
 
-Our recent work, *Dynamics of detonation cellular structure in linear and nonlinear instability regimes*, has been selected to receive an Honorable Mention in the Detonation colloquium for The Combustion Institute’s 40th International Symposium – Emphasizing Energy Transition. [Link](https://www.combustioninstitute.org/docs/40th_ISOC_DPA_Honorable_Mentions_List.pdf)
+Our recent work, _Dynamics of detonation cellular structure in linear and nonlinear instability regimes_, has been selected to receive an Honorable Mention in the Detonation colloquium for The Combustion Institute’s 40th International Symposium – Emphasizing Energy Transition. [Link](https://www.combustioninstitute.org/docs/40th_ISOC_DPA_Honorable_Mentions_List.pdf)
 
 This is the first time that Honorable Mentions have been named, making this recognition a distinguished achievement.
 
 ---
+
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=LSA_PCI_2024]* %}
 </div>

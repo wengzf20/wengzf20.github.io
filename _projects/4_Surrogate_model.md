@@ -4,8 +4,9 @@ title: Surrogate model
 description: Neural network based surrogate models offer great potential for accelerating expensive combustion simulation with acceptable loss of accuracy ...
 img: assets/img/project_thumbnail/pinn-feature.png
 importance: 4
-category: 
+category:
 ---
+
 <!-- the script and style -->
 <script>
 function togglebibBlock(blockid) {
@@ -23,14 +24,15 @@ function togglebibBlock(blockid) {
 <style>
 div.noshow { display: none; }
 div.bibBlock {}
-</style> 
+</style>
 <!-- the script and style -->
 
 <h2> Neural network (NN) based regression on real fluid properties </h2>
 <p style="text-align: justify;">
-The update of real fluid properties takes about 50% (reactive case) [1] or 75% (non-reactive case) of the computation time in supercritical flow simulation. 
+The update of real fluid properties takes about 50% (reactive case) [1] or 75% (non-reactive case) of the computation time in supercritical flow simulation.
 
 Fully connected (or multi-Layer perceptron) type NN was trained to predict the thermo-physical properties of pure nitrogen. The network was optimized to 69 parameters and with prediction error lower than 1% for most conditions.
+
 </p>
 
 <div class="row justify-content-sm-center">
@@ -55,8 +57,8 @@ The trained NN was coupled with an AI-empowered platform, DeepFlame, to accelera
     Simulation results obtained with explicit calculation and NN prediction. 
 </div>
 
-
 <a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
+
 <div id="ref1" class="bibBlock noshow">
 <pre>
 [1] P.C. Ma, Y. Lv, and M. Ihme, “An entropy-stable hybrid scheme for simulations of transcritical real-fluid flows,” Journal of Computational Physics 340, 330–357 (2017).

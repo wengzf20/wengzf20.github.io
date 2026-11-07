@@ -6,10 +6,10 @@ inline: false
 related_posts: false
 ---
 
-Our recent works on the laminar flame speed of oxy-syngas and oxy-methane mixtures under supercritical CO$_{2}$ power cycle relevant conditions was accepted by Combustion and Flame. 
-
+Our recent works on the laminar flame speed of oxy-syngas and oxy-methane mixtures under supercritical CO$_{2}$ power cycle relevant conditions was accepted by Combustion and Flame.
 
 ---
+
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=sCO2FlameSpeed2024]* %}
 </div>

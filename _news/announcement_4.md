@@ -6,10 +6,10 @@ inline: false
 related_posts: false
 ---
 
-Our recent works on near-limit detonation and pathological detonation were accepted by Combustion and Flame. 
-
+Our recent works on near-limit detonation and pathological detonation were accepted by Combustion and Flame.
 
 ---
+
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=SpiralDetonation2024]* %}
 </div>
@@ -20,6 +20,7 @@ We have built a long spiral tube facility to study the near-limit detonation in 
 </p>
 
 ---
+
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=PathologicalDetonation2024]* %}
 </div>

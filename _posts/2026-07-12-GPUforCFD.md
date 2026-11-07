@@ -2,9 +2,9 @@
 layout: post
 title: A walkthrough of GPU-accelerated CFD
 date: 2026-07-12 00:00:00
-description: 
+description:
 tags: GPU
-categories: 
+categories:
 thumbnail: https://www.cyberpowersystem.co.uk/blog/w/wp-content/uploads/2025/09/amd-or-nvidia.jpg
 pretty_table: true
 toc:
@@ -71,10 +71,10 @@ mpirun -np 1 ./PeleC3d.hip.TPROF.MPI.HIP.ex example.inp \
 
 Same case (Sedov blast, 64³ = 262,144 cells), 1000 timesteps, single rank each.
 
-| Backend           | Clock time | Per timestep | Speedup |
-|-------------------|------------------------|--------------|---------|
-| CPU (AMD EPYC 9575F, 1 core)      | 373.9 s                | ~0.388 s     | 1×      |
-| GPU (MI325X, 1 card)   | 1.85 s                 | ~0.0014 s    | **~200×** |
+| Backend                      | Clock time | Per timestep | Speedup   |
+| ---------------------------- | ---------- | ------------ | --------- |
+| CPU (AMD EPYC 9575F, 1 core) | 373.9 s    | ~0.388 s     | 1×        |
+| GPU (MI325X, 1 card)         | 1.85 s     | ~0.0014 s    | **~200×** |
 
 A single MI325X GPU completes the run **~200× faster** than a single EPYC 9575F CPU core
 (~280× per steady-state timestep).
