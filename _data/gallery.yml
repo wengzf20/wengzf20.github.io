@@ -2,10 +2,16 @@
   source: /assets/gallery/temperature-animation.gif
   title: Direct detonation initiation
   description: Temperature field for detonation initiation in a stoichiometric H$_2$-air mixture.
-  alt: Simulation of direct detonation initiation
+  alt: Simulation of direct detonation initiation.
+- type: video
+  source: /assets/gallery/cellularDetH2Air.mp4
+  poster: /assets/gallery/cellularDetH2Air.jpg
+  title: Cellular detonation
+  description: Propagation of detonation in a stoichiometric H$_2$-air mixture.
+  alt: Simulation of cellular detonation.
 - type: video
   source: /assets/gallery/temperature-volume.mp4
   poster: /assets/gallery/temperature-volume.jpg
-  title: Temperature field in volume
+  title: Laminar hydrogen flame
   description: Thermodiffusive instability of lean H$_2$-air flame.
   alt: Simulation of a lean hydrogen-air flame.

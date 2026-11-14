@@ -10,7 +10,7 @@ kramdown:
   input: GFM
 permalink: /blog/:year/:title/
 include: [_pages]
-exclude: [archive, vendor, node_modules, Gemfile, Gemfile.lock, README.md, LICENSE, scripts, .bundle]
+exclude: [archive, vendor, node_modules, Gemfile, Gemfile.lock, README.md, LICENSE, .bundle]
 collections:
   news:
     output: true
