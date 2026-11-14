@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Surrogate model
 description: Neural network based surrogate models offer great potential for accelerating expensive combustion simulation with acceptable loss of accuracy ...
 img: assets/img/project_thumbnail/pinn-feature.png
@@ -8,23 +8,9 @@ category:
 ---
 
 <!-- the script and style -->
-<script>
-function togglebibBlock(blockid) {
-  var id = document.getElementById(blockid);
-  if (id) {
-    if(id.className.indexOf('bibBlock') != -1) {
-        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
-    }
-  } else {
-    return;
-  }
-}
-</script>
 
-<style>
-div.noshow { display: none; }
-div.bibBlock {}
-</style>
+
+
 <!-- the script and style -->
 
 <h2> Neural network (NN) based regression on real fluid properties </h2>
@@ -57,15 +43,13 @@ The trained NN was coupled with an AI-empowered platform, DeepFlame, to accelera
     Simulation results obtained with explicit calculation and NN prediction. 
 </div>
 
-<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
-
-<div id="ref1" class="bibBlock noshow">
+<details class="references"><summary>References</summary>
 <pre>
 [1] P.C. Ma, Y. Lv, and M. Ihme, “An entropy-stable hybrid scheme for simulations of transcritical real-fluid flows,” Journal of Computational Physics 340, 330–357 (2017).
 [2] W. Mayer, J. Telaar, R. Branam, G. Schneider, and J. Hussong, “Raman Measurements of Cryogenic Injection at Supercritical Pressure,” Heat and Mass Transfer 39(8), 709–719 (2003).
 [3] <img src="/assets/img/project_thumbnail/deepflame.jpg" style="height: 2em;vertical-align: middle;"> <a href="https://github.com/deepmodeling/deepflame-dev">https://github.com/deepmodeling/deepflame-dev</a>
 </pre>
-</div>
+</details>
 
 <h2> Neural operator </h2>
 coming soon

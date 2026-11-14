@@ -1,0 +1,16 @@
+<ul class="blog-rows">
+  {% for post in include.posts %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign read_time = post.content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
+    <li class="blog-row">
+      <div class="blog-row-text">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        {% if post.description and post.description != empty %}<p class="blog-description">{{ post.description }}</p>{% endif %}
+        <p class="blog-meta">{{ read_time }} min read <span aria-hidden="true">·</span> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %d, %Y' }}</time></p>
+        {% include post-taxonomy.liquid item=post %}
+      </div>
+      {% assign thumbnail = post.thumbnail | default: '/assets/img/site-logo.png' %}
+      <a class="blog-preview" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{% if thumbnail contains '://' %}{{ thumbnail }}{% else %}{{ thumbnail | relative_url }}{% endif %}" alt="" loading="lazy"></a>
+    </li>
+  {% endfor %}
+</ul>

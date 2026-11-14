@@ -1,81 +1,100 @@
 ---
 layout: post
-_styles: |
-  .container {
-  max-width: 950px; 
-  }
 title: "CompressibleInterFoam: theory, implementation and examples"
 date: 2024-02-01 00:00:00
 description: this post is intended for a thorough introduction to compressibleInterFoam, including the governing equation, implementation in OpenFOAM and some demos.
 tags: OpenFOAM
 categories: Solvers
 thumbnail: assets/img/CFDfoundationLogo.png
-toc:
-  sidebar: right
 show_donation: true # Enable donation for this post
 ---
 
-<!--
-This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
- -->
-
-`This page is under development`
+> **Work in progress.** These notes describe OpenFOAM 9. Sections marked “Coming soon” are incomplete.
 
 CompressibleInterFoam is a default multiphase solver in OpenFOAM. It is capable of solving two compressible, non-isothermal immiscible fluids, with/without cavitation. The phase interface is captured using volume of fluid (VoF) approach. The following analysis is based on OpenFOAM 9.
 
-<!-- \begin{equation} \label{eq:cauchy-schwarz} \left( \sum{k=1}^n a_k b_k \right)^2 \leq \left( \sum{k=1}^n ak^2 \right) \left( \sum{k=1}^n b_k^2 \right) \end{equation}
-Eq. \ref{eq:cauchy-schwarz} is the Cauchy-Schwarz inequality. -->
+## Conservation equations
 
-<h2> Derivation from conservation law </h2>
-The mass conservation for individual species are
+The phase-wise mass-conservation equations are
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:mass_alpha1}
 \frac{\partial\left(\rho_1 \alpha_1\right)}{\partial t}+\nabla \cdot\left(\rho_1 \boldsymbol{U} \alpha_1\right)=\dot{m}
 \end{equation}
+</div>
+{:/nomarkdown}
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:mass_alpha2}
 \frac{\partial\left(\rho_2 \alpha_2\right)}{\partial t}+\nabla \cdot\left(\rho_2 \boldsymbol{U} \alpha_2\right)=-\dot{m}
 \end{equation}
+</div>
+{:/nomarkdown}
 
-where $$ \alpha*{1}+\alpha*{2} = 1 $$; $$ \dot{m} $$ is the source term from phase change. If there is no phase change, $$ \dot{m} $$ is zero.
+where $$ \alpha_{1}+\alpha_{2} = 1 $$; $$ \dot{m} $$ is the source term from phase change. If there is no phase change, $$ \dot{m} $$ is zero.
 
-Consider only the volume fraction in the l.h.s., and move other parts to the r.h.s. to be the source term. Eq. \ref{eq:mass_alpha1} and \ref{eq:mass_alpha2} were re-written as
+Consider only the volume fraction in the l.h.s., and move other parts to the r.h.s. to be the source term. Eq. $$ \eqref{eq:mass_alpha1} $$ and $$ \eqref{eq:mass_alpha2} $$ were re-written as
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:mass_alpha1_comp}
 \frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=-\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\dot{m}}{\rho_1}
 \end{equation}
+</div>
+{:/nomarkdown}
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:mass_alpha2_comp}
 \frac{\partial \alpha_2}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_2\right)=-\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t} - \frac{\dot{m}}{\rho_2}
 \end{equation}
+</div>
+{:/nomarkdown}
 
-The sum of these two equations lead to
+Adding these two equations gives
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:divU}
 \nabla \cdot\boldsymbol{U}=-\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t}+\frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right)+\dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right)
 \end{equation}
+</div>
+{:/nomarkdown}
 
 The 1st and 2nd term in the r.h.s. are the compressibility and phase change effects.
 
-Insert it to Eq. \ref{eq:mass*alpha1_comp} by adding and substracting $$ \alpha*{1}\nabla \cdot\boldsymbol{U} $$
+Substitute this expression into Eq. $$ \eqref{eq:mass_alpha1_comp} $$ by adding and subtracting $$ \alpha_{1}\nabla \cdot\boldsymbol{U} $$:
 
+{::nomarkdown}
+<div class="math-block">
 \begin{equation} \label{eq:mass_alpha1_final}
 \frac{\partial \alpha_1}{\partial t}+\nabla \cdot\left(\boldsymbol{U} \alpha_1\right)=\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right)
 +\alpha_1 \nabla \cdot \boldsymbol{U}+\dot{m}\left(\frac{\alpha_2}{\rho_1}+\frac{\alpha_1}{\rho_2}\right)
 \end{equation}
+</div>
+{:/nomarkdown}
 
-The compressibility, $$ \alpha*1 \nabla \cdot \boldsymbol{U} $$ and phase change are source terms for the alpha equation. They are separated into $$ S*{p} $$ and $$ S*{u} $$ in the MULES algorithm. $$ S*{p} $$ is implicit source term, $$ S\_{u} $$ is explicit source term.
+The compressibility, $$ \alpha_1 \nabla \cdot \boldsymbol{U} $$ and phase change are source terms for the alpha equation. They are separated into $$ S_{p} $$ and $$ S_{u} $$ in the MULES algorithm. $$ S_{p} $$ is implicit source term, $$ S_{u} $$ is explicit source term.
 
-<h2> MULES method </h2>
-In Eq. \ref{eq:mass_alpha1_final}, it was defined
+## MULES method
 
+### Source-term decomposition
+
+In Eq. $$ \eqref{eq:mass_alpha1_final} $$, it was defined
+
+{::nomarkdown}
+<div class="math-block">
 \begin{equation}
 \mathrm{dgdt}=-\alpha_1 \alpha_2 \left(\frac{1}{\rho_1} \frac{D \rho_1}{D t}-\frac{1}{\rho_2} \frac{D \rho_2}{D t}\right)
 \end{equation}
+</div>
+{:/nomarkdown}
 
 dgdt was calculated in the pEqn, i.e.
 
-```
+```cpp
 dgdt =
 (
     alpha1*(p_rghEqnComp2 & p_rgh)
@@ -83,9 +102,9 @@ dgdt =
 );
 ```
 
-In solving Eq. \ref{eq:mass_alpha1_final}, dgdt was separated according to its sign in each cell
+In solving Eq. $$ \eqref{eq:mass_alpha1_final} $$, dgdt was separated according to its sign in each cell
 
-```
+```cpp
 if (dgdt[celli] > 0.0)
 {
     SpRef[celli] -= dgdt[celli]/max(1.0 - alpha1[celli], 1e-4);
@@ -99,15 +118,19 @@ else if (dgdt[celli] < 0.0)
 
 The code means, if dgdt > 0
 
-$$ S*p = \text{phaseChangeS}[1] -\frac{\mathrm{dgdt}}{\alpha*{2}}, S*u = \text{phaseChangeS}[0] + \frac{\mathrm{dgdt}}{\alpha*{2}} $$
+$$
+S_p = \text{phaseChangeS}[1] -\frac{\mathrm{dgdt}}{\alpha_{2}}, S_u = \text{phaseChangeS}[0] + \frac{\mathrm{dgdt}}{\alpha_{2}}
+$$
 
 if dgdt < 0
 
-$$ S*p = \text{phaseChangeS}[1] + \frac{dgdt}{\alpha*{1}}, S_u = \text{phaseChangeS}[0] $$
+$$
+S_p = \text{phaseChangeS}[1] + \frac{dgdt}{\alpha_{1}}, S_u = \text{phaseChangeS}[0]
+$$
 
 $$ S_p $$, $$ S_u $$ together with other terms were sending to
 
-```c++
+```cpp
 // In src/twoPhaseModels/twoPhaseMixture/VoF/alphaEqn.H
 if (divU.valid())
 {
@@ -125,9 +148,11 @@ if (divU.valid())
 }
 ```
 
-In MULES::explicitSolve, the time step was calculated, then limiter was applied, last another _explicitSolve_ was called.
+### Explicit update and limiting
 
-```c++
+In `MULES::explicitSolve`, the reciprocal time step is calculated, the limiter is applied, and another `explicitSolve` overload is called.
+
+```cpp
 // In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C
 const scalar rDeltaT = 1.0/mesh.time().deltaTValue();
 limit(rDeltaT, rho, psi, phi, phiPsi, Sp, Su, psiMax, psiMin, false);
@@ -139,9 +164,9 @@ explicitSolve(rDeltaT, rho, psi, phiPsi, Sp, Su);
 // Su - SuRef + alpha1*divU()
 ```
 
-In the latter _explicitSolve_ called, $$ \alpha_1 $$ for next time step was obtained via
+In the latter `explicitSolve` call, $$ \alpha_1 $$ for next time step was obtained via
 
-```c++
+```cpp
 // In src/finiteVolume/fvMatrices/solvers/MULES/MULESTemplates.C
 psiIf =
 (
@@ -163,7 +188,7 @@ $$
 \frac{\partial \alpha_1}{\partial t}+\nabla \cdot(\boldsymbol{U} \alpha_1)=\alpha_1 S_{p} + S_{u} + \alpha_{1}\nabla\cdot\boldsymbol{U}
 $$
 
-(**Note**: Su.field() = $$ S*u+\alpha*{1}\nabla\cdot\boldsymbol{U} $$, $$ \alpha*1 S*{p} + S\_{u} $$ is implemented in _alphaSuSp.H_ in the solver)
+> **Implementation note:** `Su.field()` = $$ S_u+\alpha_{1}\nabla\cdot\boldsymbol{U} $$, $$ \alpha_1 S_{p} + S_{u} $$ is implemented in `alphaSuSp.H` in the solver.
 
 <!-- - <span style="color: red;">**if dgdt > 0**</span>
     $$\alpha_1 S_{p} + S_{u} = \alpha_{1}\text{phaseChangeS}[1]  + \text{phaseChangeS}[0] + (1-\alpha_{1})\frac{\mathrm{dgdt}}{\alpha_{2}} $$
@@ -178,17 +203,19 @@ $$
 
 ## Pressure-velocity coupling
 
-The velocity field is firstly estimated from the momentum equation, then the velocity field is inserted to Eq. \ref{eq:divU}.
+The velocity field is firstly estimated from the momentum equation, then the velocity field is inserted to Eq. $$ \eqref{eq:divU} $$.
 
-$$
+{::nomarkdown}
+<div class="math-block">
 \begin{equation}
 \nabla \cdot (\mathbf{H}_{\boldsymbol{U}} - \frac{1}{a_p} \nabla p_{\mathrm{rgh}}) = -\left(\frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} + \frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t}\right) + \dot{m}\left(\frac{1}{\rho_1} - \frac{1}{\rho_2}\right)
 \end{equation}
-$$
+</div>
+{:/nomarkdown}
 
-The source code for pressure-possion equation is
+The source code for the pressure–Poisson equation is
 
-```
+```cpp
 fvScalarMatrix p_rghEqnIncomp
 (
     fvc::div(phiHbyA) - fvm::laplacian(rAUf, p_rgh)
@@ -203,15 +230,15 @@ solve
 
 where _p_rghEqnIncomp_ means the incompressible part while _p_rghEqnComp1_ and _p_rghEqnComp2_ are compressible parts corresponding to the two phases.
 
-- fvc::div(phiHbyA): $$ \nabla \cdot \mathbf{H}\_{\boldsymbol{U}} $$
-- fvm::laplacian(rAUf, p*rgh): $$ \nabla \cdot ( \frac{1}{a_p} \nabla p*{\mathrm{rgh}}) $$
-- Sp_rgh: source term from phase change, i.e. $$ \dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right) $$
-- p_rghEqnComp1(): $$ \frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} $$
-- p_rghEqnComp2(): $$ \frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t} $$
+- `fvc::div(phiHbyA)`: $$ \nabla \cdot \mathbf{H}_{\boldsymbol{U}} $$
+- `fvm::laplacian(rAUf, p_rgh)`: $$ \nabla \cdot ( \frac{1}{a_p} \nabla p_{\mathrm{rgh}}) $$
+- `Sp_rgh`: source term from phase change, i.e. $$ \dot{m}\left(\frac{1}{\rho_1}-\frac{1}{\rho_2}\right) $$
+- `p_rghEqnComp1()`: $$ \frac{\alpha_1}{\rho_1} \frac{D \rho_1}{D t} $$
+- `p_rghEqnComp2()`: $$ \frac{\alpha_2}{\rho_2} \frac{D \rho_2}{D t} $$
 
-### Consideration of the compressibility
+### Compressibility treatment
 
-`coming soon`
+> **Coming soon.** This section is under development.
 
 <!-- By assuming constant temperature, the pressure and density can be related with
 $$d\rho_{i} = \left(\frac{\partial \rho_{i}}{\partial p}\right)_{T}dp = \psi_{i}dp\text{\quad or\quad}\rho_{i}^* = \rho_{i}^n + \psi_{i}(p^* - p^n)$$
@@ -219,11 +246,13 @@ In the pimple loop, the pressure possion equation might be solved for several ti
 
 <!-- first, the pressure effect on density was consider in the equation -->
 
-## Phase change model
+## Phase-change model
 
-The phase change model was included in the $$ \ alpha$ equation via
+### Coupling to the volume-fraction and pressure equations
 
-```c++
+The phase change model was included in the $$ \alpha $$ equation via
+
+```cpp
 Pair<tmp<volScalarField::Internal>> phaseChangeS
 (
     phaseChange.Salpha(alpha1)
@@ -238,15 +267,13 @@ if (phaseChangeS[0].valid())
 
 and pressure equation via
 
-```bash
+```cpp
 fvScalarMatrix Sp_rgh(phaseChange.Sp_rgh(rho, gh, p_rgh));
 ```
 
-### The Schnerr-Sauer model
+### Schnerr–Sauer model: volume-fraction source
 
-#### Source term of alphaEqn
-
-```c++
+```cpp
 Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
 Foam::twoPhaseChangeModels::SchnerrSauer::mDotAlphal() const
 {
@@ -276,7 +303,7 @@ $$
 \end{aligned}
 $$
 
-```c
+```cpp
 Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
 Foam::twoPhaseChangeModels::cavitationModel::Salpha
 (
@@ -294,7 +321,7 @@ Foam::twoPhaseChangeModels::cavitationModel::Salpha
 }
 ```
 
-The source term in $\alpha_{l}$ equation, $S_{\alpha}$ was seperated as
+The source term in $$ \alpha_{l} $$ equation, $$ S_{\alpha} $$ was separated as
 
 $$
 \begin{aligned}
@@ -310,18 +337,18 @@ $$
 \alpha_{l,coeff} = \left(\frac{1}{\rho_l}-\alpha_{l}\left(\frac{1}{\rho_l}-\frac{1}{\rho_v}\right)\right) > 0
 $$
 
-In OpenFOAM, fvm::Sp handles negative source term. fvm::Sp makes the negative source term implicit so it contributes to the diagonal and increase the . This can help convergence when the source term is negative on the rhs (sink term). (ref.: OpenFOAM® Beginner training session)
+In OpenFOAM, fvm::Sp handles negative source term. fvm::Sp makes the negative source term implicit so it contributes to the diagonal and increases its diagonal contribution. This can help convergence when the source term is negative on the rhs (sink term). (ref.: OpenFOAM® Beginner training session)
 
-#### Source term of pEqn
+### Schnerr–Sauer model: pressure source
 
-The mass transfer rate in pEqn, $\dot{m}_{p}$ was defined as
+The mass transfer rate in pEqn, $$ \dot{m}_{p} $$ was defined as
 
 $$
 \dot{m}_{p} = -\frac{\dot{m}}{P-P_{s}} = \underbrace{-\frac{\alpha_{l}\dot{m}_{v}}{P-P_{s}}}_{\dot{m}_{p,v} \leq 0 } - \underbrace{\frac{(1-\alpha_{l})\dot{m}_{c}}{P-P_{s}}}_{\dot{m}_{p,c} \geq 0 }  =
 \dot{m}_{p,v} - \dot{m}_{p,c}
 $$
 
-```c++
+```cpp
 Foam::Pair<Foam::tmp<Foam::volScalarField::Internal>>
 Foam::twoPhaseChangeModels::SchnerrSauer::mDotP() const
 {
@@ -343,7 +370,7 @@ $$
 \end{aligned}
 $$
 
-```
+```cpp
 Foam::tmp<Foam::fvScalarMatrix>
 Foam::twoPhaseChangeModels::cavitationModel::Sp_rgh
 (
@@ -372,11 +399,11 @@ S_{P}&= \left(\frac{1}{\rho_{l}}-\frac{1}{\rho_{v}}\right)\dot{m}\\
 \end{aligned}
 $$
 
-(Note: ${1}/{\rho_{l}}-{1}/{\rho_{v}} <0$)
+(Note: $$ {1}/{\rho_{l}}-{1}/{\rho_{v}} <0 $$)
 
-## Temperature Equation
+## Temperature equation
 
-`coming soon`
+> **Coming soon.** This section is under development.
 
 <!-- ```bash
 fvScalarMatrix TEqn

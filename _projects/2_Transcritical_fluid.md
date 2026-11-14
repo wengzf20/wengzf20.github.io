@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Transcritical fluid
 description: Chemical propulsion systems utilize high pressure to improve thermal efficency. The fluid under transcritical or supercritical states exhibits multi-scale physical behaviours and pose challenges to numerical simulation ...
 img: assets/img/project_thumbnail/N2Jet.png
@@ -9,23 +9,9 @@ giscus_comments: false
 ---
 
 <!-- the script and style -->
-<script>
-function togglebibBlock(blockid) {
-  var id = document.getElementById(blockid);
-  if (id) {
-    if(id.className.indexOf('bibBlock') != -1) {
-        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
-    }
-  } else {
-    return;
-  }
-}
-</script>
 
-<style>
-div.noshow { display: none; }
-div.bibBlock {}
-</style>
+
+
 <!-- the script and style -->
 
 <h2> Pressure-based supercritical flow solver </h2>
@@ -61,13 +47,11 @@ Injection, mixing and combustion processes in rocket engines typically take plac
     LES simulation for case 4 in Mayer's experiment [4].
 </div>
 
-<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
-
-<div id="ref1" class="bibBlock noshow">
+<details class="references"><summary>References</summary>
 <pre>
 [1] <img src="/assets/img/project_thumbnail/deepflame.jpg" style="height: 2em;vertical-align: middle;"> <a href="https://github.com/deepmodeling/deepflame-dev">https://github.com/deepmodeling/deepflame-dev</a>
 [2] M.-M. Jarczyk, and M. Pfitzner, in 50th AIAA Aerospace Sciences Meeting Including the New Horizons Forum and Aerospace Exposition (American Institute of Aeronautics and Astronautics, 2012).
 [3] P.C. Ma, Y. Lv, and M. Ihme, “An entropy-stable hybrid scheme for simulations of transcritical real-fluid flows,” Journal of Computational Physics 340, 330–357 (2017).
 [4] W. Mayer, J. Telaar, R. Branam, G. Schneider, and J. Hussong, “Raman Measurements of Cryogenic Injection at Supercritical Pressure,” Heat and Mass Transfer 39(8), 709–719 (2003).
 </pre>
-</div>
+</details>

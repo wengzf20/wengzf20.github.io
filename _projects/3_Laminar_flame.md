@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Hydrogen Safety
 description: Researches on laminar flame are essential for the development of combustion chemistry, ignition problem, flame stability ...
 img: assets/img/project_thumbnail/laminarflame.png
@@ -8,23 +8,9 @@ importance: 3
 ---
 
 <!-- the script and style -->
-<script>
-function togglebibBlock(blockid) {
-  var id = document.getElementById(blockid);
-  if (id) {
-    if(id.className.indexOf('bibBlock') != -1) {
-        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
-    }
-  } else {
-    return;
-  }
-}
-</script>
 
-<style>
-div.noshow { display: none; }
-div.bibBlock {}
-</style>
+
+
 <!-- the script and style -->
 
 Hydrogen is viewed as a promising energy carrier worldwide in the perspective of the carbon-neutrality goal. The reactive nature of hydrogen involving wide flammability range, low ignition energy and fast flame speed poses the risk of ignition and explosion. The ongoing research aims to secure the safe deployment of hydrogen technologies.
@@ -82,18 +68,14 @@ The extrapolation relation was validated with spherical flame simulation based o
     The variations of flame speed with the Karlovitz number simulated with IG and NA EoS. The fresh mixture was stoichiometric H2-air.
 </div>
 
-<a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
-
-<div id="ref2" class="bibBlock noshow">
+<details class="references"><summary>Related publications</summary>
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=SphericalFlame2024 || key=jetignition2024]* %}
 </div>
-</div>
+</details>
 
-<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
-
-<div id="ref1" class="bibBlock noshow">
+<details class="references"><summary>References</summary>
 <pre>
 [1] P.D. Ronney, and G.I. Sivashinsky, “A Theoretical Study of Propagation and Extinction of Nonsteady Spherical Flame Fronts,” SIAM J. Appl. Math. 49(4), 1029–1046 (1989).
 </pre>
-</div>
+</details>

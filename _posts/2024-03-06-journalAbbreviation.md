@@ -6,16 +6,17 @@ description:
 tags: Notes
 categories:
 thumbnail: https://brewminate.com/wp-content/uploads/2016/11/Journal03.jpg
-pretty_table: true
 ---
 
-`This page will receive periodic updates.`
+> **Living notes.** This page is updated periodically.
 
 The abbreviated title is generated via [CAS Source Index (CASSI) Search Tool](https://cassi.cas.org/search.jsp).
 
+## Journal abbreviations
+
 | Journal                                                                                                                      | Abbreviated title          |
 | :--------------------------------------------------------------------------------------------------------------------------- | :------------------------- |
-| [Applications in Energy and Combustion Science]()                                                                            | Appl. Energy Combust. Sci. |
+| Applications in Energy and Combustion Science                                                                            | Appl. Energy Combust. Sci. |
 | [International Journal of Chemical Kinetics ](https://onlinelibrary.wiley.com/journal/10974601)                              | Int. J. Chem. Kinet.       |
 | [Progress in Energy and Combustion Science](https://www.sciencedirect.com/journal/progress-in-energy-and-combustion-science) | Prog. Energy Combust. Sci. |
 | [Combustion and Flame](https://www.sciencedirect.com/journal/combustion-and-flame)                                           | Combust. Flame             |

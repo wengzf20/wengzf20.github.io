@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Detonation wave at elevated pressure
 description: Focus on the initiation, structure and stability of gaseous detonation at high preassure where real gas effects are non-negligible.
 img: assets/img/project_thumbnail/sootfoil.png
@@ -10,23 +10,9 @@ related_publications: false
 ---
 
 <!-- the script and style -->
-<script>
-function togglebibBlock(blockid) {
-  var id = document.getElementById(blockid);
-  if (id) {
-    if(id.className.indexOf('bibBlock') != -1) {
-        id.className.indexOf('noshow') == -1?id.className = 'bibBlock noshow':id.className = 'bibBlock';
-    }
-  } else {
-    return;
-  }
-}
-</script>
 
-<style>
-div.noshow { display: none; }
-div.bibBlock {}
-</style>
+
+
 <!-- the script and style -->
 
 <p style="text-align: justify;">
@@ -104,21 +90,17 @@ Linear and non-linear stability analysis was performed for 1D detonation for Nob
 
 Recently, the study was extended to 2D cellular detonation. More results are coming.
 
-<a href="javascript:togglebibBlock('ref1')" class="textlink">References</a>
-
-<div id="ref1" class="bibBlock noshow">
+<details class="references"><summary>References</summary>
 <pre>
 [1] R.G. Schmitt, and P.B. Butler, “Detonation Properties of Gases at Elevated Initial Pressures,” Combustion Science and Technology 106(1–3), 167–191 (1995).
 [2] S. Taileb, J. Melguizo-Gavilanes, and A. Chinnayya, “Influence of the equation of state on the cellular structure of gaseous detonationsat elevated pressures.pdf,” (2020).
 [3] L. He and P. Clavin, “On the direct initiation of gaseous detonations by an energy source,” Journal of Fluid Mechanics 277, 227–248 (1994).
 [4] C.A. Eckett, J.J. Quirk, and J.E. Shepherd, “The role of unsteadiness in direct initiation of gaseous detonations,” Journal of Fluid Mechanics 421, 147–183 (2000).
 </pre>
-</div>
+</details>
 
-<a href="javascript:togglebibBlock('ref2')" class="textlink">Related publications</a>
-
-<div id="ref2" class="bibBlock noshow">
+<details class="references"><summary>Related publications</summary>
 <div class="publications" >
   {% bibliography --group_by none --query @*[key=WENGPhys.Fluids2021 || key=WENGCombustionandFlame2023 || key=WENGCombustionandFlame2022 || key=WENGCombustionandFlame2023b || key=LSANA2023 || key=LSA_PCI_2024 || key=cellularDet_CNF_2025]* %}
 </div>
-</div>
+</details>

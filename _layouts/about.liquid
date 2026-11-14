@@ -1,94 +1,26 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        {{ site.first_name }}
-        {{ site.middle_name }}
-        <span class="font-weight-bold">{{ site.last_name }}</span>
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid path = profile_image_path class = profile_image_class sizes = sizes alt = page.profile.image
-            cache_bust = true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info" style="font-size: 0.875rem;">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="clearfix">{{ content }}</div>
-
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Visitor -->
-    <!--
-      <div style="text-align: center;">
-          <h2>
-              <a href="https://info.flagcounter.com/ajqz">
-                  <img src="https://s11.flagcounter.com/map/ajqz/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0">
-              </a>
-          </h2>
-      </div>
-    -->
-
-    <div style="position: relative; width: 30%; max-width: 800px; margin: 0 auto; padding-top: 35%;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=kMTT9_jpICB43-nHbnVWJsAYjf9TEyswuWK-rCXewkI"></script>
-      </div>
-    </div>
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-  </article>
+<h1>Zifeng <strong>Weng</strong></h1>
+<aside class="profile">
+  <img src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="Zifeng Weng">
+  <ul class="profile-links">
+    {% for link in page.profile.links %}
+      <li{% if link.full_row %} class="full-row"{% endif %}><a href="{{ link.url }}">{% assign icon_path = link.icon | prepend: 'icons/' | append: '.svg' %}{% include {{ icon_path }} %}<span>{{ link.label }}</span></a></li>
+    {% endfor %}
+  </ul>
+</aside>
+<div class="bio">{{ content }}</div>
+<section class="clear home-updates"><h2><a href="{{ '/news/' | relative_url }}">News</a></h2>{% include news.liquid limit=3 %}</section>
+<section class="home-updates"><h2><a href="{{ '/Blog/' | relative_url }}">Latest Posts</a></h2>{% include news.liquid items=site.posts limit=3 %}</section>
+<div class="social">
+  <nav class="social-icons" aria-label="Contact and academic profiles">
+    <a href="mailto:{{ site.email }}" aria-label="Email" title="Email">{% include icons/email.svg %}</a>
+    <a href="https://orcid.org/0000-0001-6797-7594" aria-label="ORCID" title="ORCID">{% include icons/orcid.svg %}</a>
+    <a href="https://scholar.google.com/citations?user=iQ73Y8UAAAAJ" aria-label="Google Scholar" title="Google Scholar">{% include icons/scholar.svg %}</a>
+    <a href="https://www.researchgate.net/profile/Zifeng-Weng" aria-label="ResearchGate" title="ResearchGate">{% include icons/researchgate.svg %}</a>
+    <a href="https://github.com/wengzf20" aria-label="GitHub" title="GitHub">{% include icons/github.svg %}</a>
+    <a href="https://www.linkedin.com/in/zifeng-weng-311316291" aria-label="LinkedIn" title="LinkedIn">{% include icons/linkedin.svg %}</a>
+  </nav>
+  <p class="contact-note">Stay Hungry Stay Foolish</p>
 </div>

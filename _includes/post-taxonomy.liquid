@@ -1,0 +1,6 @@
+{% assign taxonomy_year = include.item.date | date: '%Y' %}
+<p class="blog-taxonomy">
+  <a href="{{ taxonomy_year | prepend: '/blog/' | append: '/' | relative_url }}"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3 0h2v3H3zm8 0h2v3h-2zM2 2h1v2h2V2h6v2h2V2h1a1 1 0 0 1 1 1v3H1V3a1 1 0 0 1 1-1zM1 7h14v7a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg> {{ taxonomy_year }}</a>
+  {% for tag in include.item.tags %}<span class="taxonomy-separator" aria-hidden="true">·</span><a href="{{ tag | slugify | prepend: '/blog/tag/' | append: '/' | relative_url }}"><span class="taxonomy-symbol" aria-hidden="true">#</span> {{ tag }}</a>{% endfor %}
+  {% for category in include.item.categories %}<span class="taxonomy-separator" aria-hidden="true">·</span><a href="{{ category | slugify | prepend: '/blog/category/' | append: '/' | relative_url }}"><span class="taxonomy-symbol" aria-hidden="true">◆</span> {{ category }}</a>{% endfor %}
+</p>

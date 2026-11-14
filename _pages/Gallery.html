@@ -1,0 +1,12 @@
+---
+layout: page
+title: Gallery
+permalink: /Gallery/
+nav: true
+nav_order: 4
+wide: true
+---
+<p class="gallery-copyright">© {{ 'now' | date: '%Y' }} Zifeng Weng. All rights reserved. Please <a href="mailto:{{ site.email }}">contact me</a> for permission to reuse these images and animations.</p>
+<div class="gallery-grid" data-inline-dollar-math>{% for item in site.data.gallery %}<article class="gallery-item">
+{% if item.type == 'video' %}<video controls playsinline preload="metadata"{% if item.poster %} poster="{{ item.poster | relative_url }}"{% endif %} aria-label="{{ item.alt | escape }}"><source src="{{ item.source | relative_url }}" type="video/mp4"><a href="{{ item.source | relative_url }}">Download {{ item.title }}</a></video>{% else %}<a href="{{ item.source | relative_url }}"><img src="{{ item.source | relative_url }}" alt="{{ item.alt | escape }}" loading="lazy"></a>{% endif %}
+<h2>{{ item.title }}</h2><p>{{ item.description }}</p></article>{% endfor %}</div>

@@ -6,9 +6,6 @@ description:
 tags: GPU
 categories:
 thumbnail: https://www.cyberpowersystem.co.uk/blog/w/wp-content/uploads/2025/09/amd-or-nvidia.jpg
-pretty_table: true
-toc:
-  sidebar: right
 ---
 
 ## Running PeleC on AMD MI325X GPU
@@ -17,7 +14,7 @@ This section walks through getting PeleC running on **AMD Instinct MI325X** GPUs
 **ROCm 7.2.0 / HIP**, using the classic **Sedov blast-wave** test case, and reports the
 CPU-vs-GPU speedup we measured.
 
-### 1. Setup
+### Setup
 
 Load the ROCm toolchain and point PeleC at its submodules:
 
@@ -67,7 +64,7 @@ mpirun -np 1 ./PeleC3d.hip.TPROF.MPI.HIP.ex example.inp \
        amrex.the_arena_init_size=2147483648 > log.run 2>&1
 ```
 
-### 2. Performance comparison
+### Performance comparison
 
 Same case (Sedov blast, 64³ = 262,144 cells), 1000 timesteps, single rank each.
 
